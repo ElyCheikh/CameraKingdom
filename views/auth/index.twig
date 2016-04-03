@@ -1,0 +1,17 @@
+{% extends 'layout.twig' %}
+{% block content %}
+    {% if not user %}
+        <a href="/login"> Login</a>
+        <br>
+        <a href="/register"> Register</a>
+        <br />
+       <a href="/auth/facebook"> Facebook</a>
+       <br />
+       <a href="/auth/github"> GitHub</a>
+       <br />
+       <a href="/auth/google"> Google</a>
+    {% else %}
+        <p>You are currently logged in as {{user.username}}({{user.email}})</p>
+        <a href="/logout"> Logout </a>
+    {% endif %}
+{% endblock %}
