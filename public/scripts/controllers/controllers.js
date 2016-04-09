@@ -383,3 +383,9 @@ app.controller('ProfileCtrl', function($scope, $http) {
 		$scope.profile = data;
 	});
 });
+
+app.controller('MessagesForTestCtrl', function (/* $scope, $location, $http */) {
+	console.log("Messages Controller reporting for duty.");
+
+
+});
