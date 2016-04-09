@@ -1,5 +1,5 @@
 <header>
-		<div class="container-fluid custom-container">
+		<div ng-controller="ProfileCtrl"  class="container-fluid custom-container">
 			<div class="row no_row row-header">
 				<div class="brand-be">
 					<a href="/">
@@ -208,7 +208,7 @@
 						</div>
 						<div class="be-drop-down login-user-down">
 							<img class="login-user" src="img/login.jpg" alt="">
-							<span class="be-dropdown-content">Hi, <span>Taylor</span></span>
+							<span class="be-dropdown-content"> <span>{{profile.fullName || profile.username}}</span></span>
 							<div class="drop-down-list a-list">
 								<a href="#/myportfolio">My Portfolio</a>
 								<a href="#/">Statistics </a>
