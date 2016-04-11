@@ -19,7 +19,7 @@ var Account = require('./models/account');
 var config = require('./oauth.js');
 var routes = require('./routes/index');
 var users = require('./routes/users');
-
+var tweets = require('./routes/tweets');
 var app = express();
 
 // view engine setup
@@ -72,6 +72,7 @@ mongoose.connect('mongodb://localhost/atelier8');
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/tweets', tweets);
 
 ////////////////////////////////////////////////////////////
 app.get('/account', ensureAuthenticated, function(req, res) {
