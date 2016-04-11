@@ -1,0 +1,33 @@
+{% extends 'layout.twig' %}
+
+{% block content %}
+
+<table class="table">
+        <thead>
+            <tr>
+                <th>num</th>
+                <th>Publication</th>
+                <th>Type</th>
+                <th>Tags</th>
+                <th>Location</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for p in publications %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td><img src="{{ p.images.thumbnail.url }}" ></td>
+                    <td>{{ p.type }}</td>
+                    <td>
+                        <ul style="list-style-type:circle;">
+                            {% for t in p.tags %}
+                             <li>{{t}}</li>
+                            {% endfor %}
+                        </ul>
+                    </td>
+                    <td>{{ p.location.name}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
