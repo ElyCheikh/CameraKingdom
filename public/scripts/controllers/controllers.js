@@ -146,26 +146,53 @@ app.controller('DiscoverCtrl', function (/* $scope, $location, $http */) {
  * Controls the Challenges
  */
 app.controller('ChallengesCtrl', function (/* $scope, $location, $http */) {
-  console.log("Challenges Controller reporting for duty.");
-  	//MIX UP
+	console.log("Challenges Controller reporting for duty.");
+	//MIX UP
 	if($('#container-mix').length) {
 		$('#container-mix').mixItUp(
-			{
-				animation: {
-					duration: 400,
-					effects: 'fade translateZ(-360px) stagger(34ms)',
-					easing: 'ease'
+				{
+					animation: {
+						duration: 400,
+						effects: 'fade translateZ(-360px) stagger(34ms)',
+						easing: 'ease'
+					}
 				}
-			}
 		);};
-			$(".be-drop-down").on("click" ,function(){
+	$(".be-drop-down").on("click" ,function(){
 		$(this).toggleClass("be-dropdown-active");
 		$(this).find(".drop-down-list").stop().slideToggle();
 	});
 	$(".drop-down-list li").on("click", function(){
 		var new_value = $(this).find("a").text();
 		$(this).parent().parent().find(".be-dropdown-content").text(new_value);
-			return false;
+		return false;
+	});
+
+});
+/**
+ * Controls the Social Tweets
+ */
+app.controller('SocialCtrl', function (/* $scope, $location, $http */) {
+	console.log("Social Controller reporting for duty.");
+	//MIX UP
+	if($('#container-mix').length) {
+		$('#container-mix').mixItUp(
+				{
+					animation: {
+						duration: 400,
+						effects: 'fade translateZ(-360px) stagger(34ms)',
+						easing: 'ease'
+					}
+				}
+		);};
+	$(".be-drop-down").on("click" ,function(){
+		$(this).toggleClass("be-dropdown-active");
+		$(this).find(".drop-down-list").stop().slideToggle();
+	});
+	$(".drop-down-list li").on("click", function(){
+		var new_value = $(this).find("a").text();
+		$(this).parent().parent().find(".be-dropdown-content").text(new_value);
+		return false;
 	});
 
 });
