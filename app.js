@@ -37,7 +37,7 @@ app.use(bodyParser.urlencoded({
 app.use(cookieParser());
 //app.use(express.methodOverride());
 app.use(flash());
-app.use(express.static(path.join(__dirname, 'public')));
+//app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(require('express-session')({
   secret: 'atelier 8',
@@ -68,7 +68,7 @@ passport.deserializeUser(function(id, done) {
   });
 });
 
-mongoose.connect('mongodb://localhost/atelier8');
+mongoose.connect('mongodb://localhost/CameraKingdom');
 
 app.use('/', routes);
 app.use('/users', users);
