@@ -8,7 +8,7 @@ angular.module('NetworkWebApp', [
     $routeProvider.when("/home", {templateUrl: "partials/index.html", controller: "HomeCtrl"});
     $routeProvider.when("/activity", {templateUrl: "partials/activity.html", controller: "ActivityCtrl"});
   $routeProvider.when("/claims", {templateUrl: "partials/claims.html", controller: "ClaimsCtrl"});
-  $routeProvider.when("/social", {templateUrl: "partials/social.html", controller: "SocialCtrl"});
+    $routeProvider.when("/social", {templateUrl: "partials/social.html", controller: "SocialCtrl"});
 
     $routeProvider.when("/challenges", {templateUrl: "partials/challenges.html", controller: "ChallengesCtrl"});
     $routeProvider.when("/messages", {templateUrl: "partials/messages-2.html", controller: "MessagesCtrl"});
