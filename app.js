@@ -18,8 +18,11 @@ var InstagramStrategy = require('passport-instagram').Strategy;
 var Account = require('./models/account');
 var config = require('./oauth.js');
 var routes = require('./routes/index');
+var instagram = require('./routes/instagram');
+var youtube = require('./routes/youtube');
 var users = require('./routes/users');
 var tweets = require('./routes/tweets');
+var ig = require('instagram-node').instagram();
 var app = express();
 
 // view engine setup
@@ -50,11 +53,9 @@ app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 
-
-var Account = require('./models/account');
 passport.use(new LocalStrategy(Account.authenticate()));
-/*passport.serializeUser(Account.serializeUser());
-passport.deserializeUser(Account.deserializeUser());*/
+//passport.serializeUser(Account.serializeUser());
+//passport.deserializeUser(Account.deserializeUser());
 
 passport.serializeUser(function(Account, done) {
   console.log('serializeUser: ' + Account._id);
@@ -73,17 +74,18 @@ mongoose.connect('mongodb://localhost/CameraKingdom');
 app.use('/', routes);
 app.use('/users', users);
 app.use('/tweets', tweets);
-
+app.use('/instagram', instagram);
+app.use('/youtube', youtube);
 ////////////////////////////////////////////////////////////
 app.get('/account', ensureAuthenticated, function(req, res) {
-  console.log('cooooooooooooooooool')
+  console.log('cooooooooooooooooool');
   Account.findById(req.session.passport.user,
    function(err, account) {
     if (err) {
       console.log(err); // handle errors
       console.log('lllllllllllllllllllllllllllllllllllllllllll')
     } else {
-      console.log('user..  ' + account.fullName +''+ account.username)
+      console.log('user..  ' + account.fullName +''+ account.username);
       console.log(' xxxxxxxx   '+req.session.passport.user);
       //////  node  /////
       /*res.render('account.twig', {
