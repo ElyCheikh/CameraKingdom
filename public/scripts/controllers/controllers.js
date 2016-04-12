@@ -927,3 +927,18 @@ app.controller('ProfileCtrl', function($scope, $http) {
 app.controller('MessagesForTestCtrl',['$scope', function($rootScope){
 	$rootScope.globalFoo();
 }]);
+/**
+ * Controls the Instagram
+ */
+app.controller('InstagramCtrl', function($scope, InstagramFactory) {
+
+
+
+	loadPhotosFromInsta();
+	function loadPhotosFromInsta(){
+		InstagramFactory.photos().success(function (response) {
+			//console.log(response);
+			$scope.photos = response;
+		});
+	}
+});
