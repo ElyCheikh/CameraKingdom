@@ -37,10 +37,10 @@ app.use(bodyParser.urlencoded({
 app.use(cookieParser());
 //app.use(express.methodOverride());
 app.use(flash());
-//app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(require('express-session')({
-  secret: 'atelier 8',
+  secret: 'CameraKingdom',
   resave: false,
   saveUninitialized: false
 }));
@@ -68,7 +68,7 @@ passport.deserializeUser(function(id, done) {
   });
 });
 
-mongoose.connect('mongodb://localhost/CameraKingdom');
+mongoose.connect('mongodb://elycheikh:ely4twin1@ds011379.mlab.com:11379/camerakingdom');
 
 app.use('/', routes);
 app.use('/users', users);

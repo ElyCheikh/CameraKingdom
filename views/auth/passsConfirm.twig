@@ -1,0 +1,18 @@
+{% extends 'layout.twig' %}
+{% block content %}
+    <div >
+   bla ::  {{arg}}
+        
+        <form action="/ResetPassword" method="post" style="max-width: 300px;" >
+         password:   <input type="password" name="pass" placeholder=""/> <br />
+            confirm password: <input type="password" name="conf"
+                   placeholder=""/> <br>
+        <input type="hidden" name="token" value={{arg}}> </input>
+           
+            <input type="submit" type="submit" value="Submit" /><br>
+    
+        </form>
+
+    
+    </div>
+{% endblock %}

@@ -29,6 +29,7 @@
     "passport-twitter": "^1.0.4",
     "rand-token": "^0.2.1",
     "serve-favicon": "~2.3.0",
-    "twig": "^0.8.8"
+    "twig": "^0.8.8",
+    "twilio": "^2.9.1"
   }
 }
