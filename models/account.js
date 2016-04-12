@@ -8,7 +8,9 @@ var Account = new Schema({
     username: String,
     password: String,
     email: String,
+    phone : String,
     email_verified : String,
+    forgot: String,
     provider: String,
     created: { type: Date, default: Date.now }
    

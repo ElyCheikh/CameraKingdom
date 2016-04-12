@@ -48,6 +48,7 @@ angular.module('NetworkWebApp', [
 			templateUrl: 'partials/verified.html',
 			controller: 'VerifiedCtrl'
 		});
+ 
 
   $routeProvider.otherwise({redirectTo: '/home'});
 });
