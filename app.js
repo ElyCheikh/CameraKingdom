@@ -101,7 +101,6 @@ var upload = multer({ //multer settings
 
 /** API path that will upload the files */
 app.post('/upload', function(req, res) {
-  console.log("hello sof");
   upload(req,res,function(err){
     if(err){
       res.json({error_code:1,err_desc:err});
@@ -112,7 +111,6 @@ app.post('/upload', function(req, res) {
 });
 
 app.options('/upload', function(req, res) {
-  console.log("hello sof2");
   upload(req,res,function(err){
     if(err){
       res.json({error_code:1,err_desc:err});
