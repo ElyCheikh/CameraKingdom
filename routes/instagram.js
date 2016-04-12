@@ -5,7 +5,7 @@ var express = require('express');
 var http = require('http');
 var router = express.Router();
 
-var ig = require('instaram-node').instagram();
+var ig = require('instagram-node').instagram();
 //user_id hamdi : 278199g704\
 ig.use({ client_id: '88092373fad24e649152152430554170',
     client_secret: '71bfc26f83124a668792c029b6a2ad96' });
