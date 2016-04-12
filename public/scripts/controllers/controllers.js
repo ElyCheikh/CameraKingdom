@@ -923,6 +923,15 @@ app.controller('ProfileCtrl', function($scope, $http) {
 	});
 });
 
+<<<<<<< HEAD
+app.controller('MessagesForTestCtrl', function (/* $scope, $location, $http */) {
+	console.log("Messages Controller reporting for duty.");
+
+
+});
+
+=======
 app.controller('MessagesForTestCtrl',['$scope', function($rootScope){
 	$rootScope.globalFoo();
 }]);
+>>>>>>> ed394073b5b73b80312a0efc6faa200f4370a7a5

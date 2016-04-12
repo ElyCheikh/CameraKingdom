@@ -26,6 +26,15 @@ var ig = require('instagram-node').instagram();
 var app = express();
 var multer = require('multer');
 
+
+app.use(function (req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  next();
+});
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -44,17 +53,9 @@ app.use(flash());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-app.use(function (req, res, next) {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-  res.setHeader('Access-Control-Allow-Credentials', true);
-  next();
-});
-
 
 app.use(require('express-session')({
-  secret: 'atelier 8',
+  secret: 'CameraKingdom',
   resave: false,
   saveUninitialized: false
 }));
@@ -80,7 +81,7 @@ passport.deserializeUser(function(id, done) {
   });
 });
 
-mongoose.connect('mongodb://localhost/CameraKingdom');
+mongoose.connect('mongodb://elycheikh:ely4twin1@ds011379.mlab.com:11379/camerakingdom');
 
 
 // upload code //sofien

@@ -1,0 +1,12 @@
+{% extends 'layout.twig' %}
+
+{% block content %}
+
+<form action="/action_pass_forgot" method="post" style="max-width: 300px;" >
+    <h3>Comment Vous voulez requiperez votre mot de passe</h3>
+    <input type="radio" name="groupe1"  value="email" checked=""> email</input> <br />  
+    <input type="radio" name="groupe1" value="sms" > sms</input> <br />
+    <input type="submit" type="submit" value="Submit" /><br>  
+</form>
+        
+{% endblock %}
