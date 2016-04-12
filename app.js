@@ -24,7 +24,6 @@ var users = require('./routes/users');
 //var tweets = require('./routes/tweets');
 var ig = require('instagram-node').instagram();
 var app = express();
-var multer = require('multer');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -51,6 +50,7 @@ app.use(function (req, res, next) {
   res.setHeader('Access-Control-Allow-Credentials', true);
   next();
 });
+
 
 app.use(require('express-session')({
   secret: 'atelier 8',
@@ -79,47 +79,7 @@ passport.deserializeUser(function(id, done) {
   });
 });
 
-
-
 mongoose.connect('mongodb://localhost/CameraKingdom');
-
-
-// upload //sofien
-var storage = multer.diskStorage({ //multers disk storage settings
-  destination: function (req, file, cb) {
-    cb(null, './uploads/');
-  },
-  filename: function (req, file, cb) {
-    var datetimestamp = Date.now();
-    cb(null, file.fieldname + '-' + datetimestamp + '.' + file.originalname.split('.')[file.originalname.split('.').length -1]);
-  }
-});
-
-var upload = multer({ //multer settings
-  storage: storage
-}).single('file');
-
-/** API path that will upload the files */
-app.post('/upload', function(req, res) {
-  upload(req,res,function(err){
-    if(err){
-      res.json({error_code:1,err_desc:err});
-      return;
-    }
-    res.json({error_code:0,err_desc:null});
-  });
-});
-
-app.options('/upload', function(req, res) {
-  upload(req,res,function(err){
-    if(err){
-      res.json({error_code:1,err_desc:err});
-      return;
-    }
-    res.json({error_code:0,err_desc:null});
-  });
-});
-//
 
 app.use('/', routes);
 app.use('/users', users);
@@ -148,6 +108,7 @@ app.get('/account', ensureAuthenticated, function(req, res) {
     }
   });
 });
+///////insta//////
 
 
 
@@ -201,8 +162,6 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
-
-
 
 // error handlers
 
