@@ -1,7 +1,9 @@
 var express = require('express');
+var mongoose = require('mongoose');
 var router = express.Router();
 var Twit = require('twit');
 var config = require('../config.twitter');
+var Tweet = require('../models/tweet.js');
 
 // instantiate Twit module
 var twitter = new Twit(config.twitter);
@@ -11,6 +13,7 @@ var MAX_WIDTH = 305;
 var OEMBED_URL = 'statuses/oembed';
 var USER_TIMELINE_URL = 'statuses/user_timeline';
 
+//mongoose.connect('mongodb://localhost:27017/mongooseTwitterDB');
 
 /**
  * GET tweets json.
@@ -93,10 +96,38 @@ router.get('/user_timeline/:user', function(req, res) {
     tweets = data;
 
     var i = 0, len = tweets.length;
-
+    //console.log(tweets.user.id);
     for(i; i < len; i++) {
+     console.log(tweets[i].user.id);
+
+      new Tweet({
+        fullName: tweets[i].user.name + ''+ tweets[i].user.screen_name,
+        description : tweets[i].user.description,
+        followers_count:  tweets[i].user.followers_count,
+        friends_count: tweets[i].user.friends_count
+      })
+          .save(function(err, Tweet) {
+            if(err){
+              console.log(err);
+            }else{
+              console.log('Saved Succcesfully');
+            }
+          });
+
+
+
       getOEmbed(tweets[i]);
     }
+
+    Tweet.find(function(err, list) {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log('Cool');
+        console.log(list);
+      }
+
+    });
   });
 
   /**
