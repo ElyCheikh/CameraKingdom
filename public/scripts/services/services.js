@@ -35,3 +35,15 @@ services.factory('rewardPutFactory', function ($resource) {
     });
 });
 */
+//Instagram
+services.factory('InstagramFactory', ['$http', function ($http){
+
+	var dataFactory = {};
+
+	dataFactory.photos = function (){
+		return $http.get('http://localhost:3000/instagram/json');
+	};
+
+	return dataFactory;
+
+}]);

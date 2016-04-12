@@ -499,3 +499,18 @@ app.controller('MessagesForTestCtrl', function (/* $scope, $location, $http */) 
 
 
 });
+/**
+ * Controls the Instagram
+ */
+app.controller('InstagramCtrl', function($scope, InstagramFactory) {
+
+
+
+	loadPhotosFromInsta();
+	function loadPhotosFromInsta(){
+		InstagramFactory.photos().success(function (response) {
+			//console.log(response);
+			$scope.photos = response;
+		});
+	}
+});
