@@ -757,9 +757,10 @@ app.controller('ChallengesCtrl',['$scope', function($rootScope){
 	console.log("ChallengesCtrl Controller reporting for duty.");
 	$rootScope.globalFoo();
 }]);
-app.controller('TweetList',['$scope', function($scope,$rootScope, $resource, $timeout) {
-	$rootScope.globalFoo();
+app.controller('TweetList', function($scope, $resource, $timeout) {
 
+ 	//$rootScope.globalFoo();
+	console.log("twitter ctrl");
     /**
      * init controller and set defaults
      */
@@ -840,7 +841,7 @@ app.controller('TweetList',['$scope', function($scope,$rootScope, $resource, $ti
     }
 
     init();
-}]);
+});
 /**
  * Controls the Social Tweets
  */
