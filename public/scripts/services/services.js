@@ -47,3 +47,16 @@ services.factory('InstagramFactory', ['$http', function ($http){
 	return dataFactory;
 
 }]);
+
+//Youtube
+services.factory('YoutubeFactory', ['$http', function ($http){
+
+	var dataFactory = {};
+
+	dataFactory.photos = function (){
+		return $http.get('http://localhost:3000/youtube');
+	};
+
+	return dataFactory;
+
+}]);

@@ -858,6 +858,7 @@ app.controller('MyportfolioCtrl',['$scope', function($rootScope){
  * Controls the Addwork
  */
 app.controller('AddworkCtrl',['$scope', function($rootScope){
+	console.log("AddworkCtrl Controller reporting for duty.");
  	$rootScope.globalFoo();
 }]);
 /**
