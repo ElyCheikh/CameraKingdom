@@ -44,8 +44,8 @@ router.get('/', function(req, res, next) {
     var APIKEY = 'AIzaSyDRFmTiPr3o52cMkb_qEjy6XHou62soAhg';
     YTAPI.setup(APIKEY);
     YTAPI.searchFunctions.channelInternalSearch('AdeleVEVO', '', 10).then(function (data) {
-        //res.json(data);
-        res.render('youtube/youtube.twig', { title: 'Mes videos youtube' ,videos : data});
+        res.json(data);
+        //res.render('youtube/youtube.twig', { title: 'Mes videos youtube' ,videos : data});
     });
     //res.render('index', { title: 'Express' });
 });
