@@ -25,6 +25,7 @@ var tweets = require('./routes/tweets');
 var ig = require('instagram-node').instagram();
 var app = express();
 var multer = require('multer');
+var session = require('express-session');
 
 
 app.use(function (req, res, next) {
@@ -52,13 +53,17 @@ app.use(cookieParser());
 app.use(flash());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(session({
+  secret: 'secret app',
+  resave: false,
+  saveUninitialized: true
+}));
 
-
-app.use(require('express-session')({
+/*app.use(require('express-session')({
   secret: 'CameraKingdom',
   resave: false,
   saveUninitialized: false
-}));
+}));*/
 
 app.use(flash());
 
@@ -161,7 +166,7 @@ app.get('/auth/facebook/callback',
       failureRedirect: '/'
     }),
     function(req, res) {
-      res.redirect('/#/profile'); //     /#/profile  /account
+      res.redirect('/#/myportfolio'); //     /#/profile  /account
     });
 //////////////////////////   GitHub ///////////////////////////
 app.get('/auth/github',
@@ -170,7 +175,7 @@ app.get('/auth/github',
 app.get('/auth/github/callback',
     passport.authenticate('github', { failureRedirect: '/' }),
     function(req, res) {
-      res.redirect('/#/profile'); //         /account   /#/profile
+      res.redirect('/#/myportfolio'); //         /account   /#/profile
     });
 ////////////////////////   Google  ////////////////////////////
 app.get('/auth/google',
@@ -182,7 +187,7 @@ app.get('/auth/google',
 app.get('/auth/google/callback',
     passport.authenticate('google', { failureRedirect: '/' }),
     function(req, res) {
-      res.redirect('/#/profile');
+      res.redirect('/#/myportfolio');
     });
 ///////////////////////////////////////////////////////////
 function ensureAuthenticated(req, res, next) {

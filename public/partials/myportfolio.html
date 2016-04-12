@@ -1,4 +1,4 @@
-<div id="content-block">
+<div id="content-block " ng-controller="ProfileCtrl">
 		<div class="container be-detail-container">
 			<div class="row">
 				<div class="col-xs-12 col-md-4 left-feild">
@@ -17,9 +17,9 @@
 									<a class="color-4" href="page1.html"><i class="fa fa-linkedin"></i> 53</a>
 								</div>
 							</div>
-							<p class="be-use-name">Leigh Taylor</p>
+							<p class="be-use-name">{{ profile.fullName || profile.username }}</p>
 							<div class="be-user-info">
-								Barnsley, United Kingdom
+							{{profile.phone}}	 <br><br>{{profile.email}}
 							</div>
 							<div class="be-text-tags style-2">
 								<a href="page1.html">UI/UX</a>,
@@ -649,7 +649,7 @@
                             	<div class="collection">
                             		<h3 class="menu-article">Creative Ideas</h3>
                             		<div class="collection-header">
-                            			<span><i class="fa fa-user"></i>by <a href="page1.html">Leigh Taylor</a> </span>
+                            			<span><i class="fa fa-user"></i>by <a href="page1.html">{{ profile.fullName || profile.username }}</a> </span>
                             			<span><i class="fa fa-thumbs-o-up"></i> 360</span>
                             			<span><i class="fa fa-eye"></i> 789</span>
                             			<div class="edit-collection">
@@ -694,7 +694,7 @@
                             	<div class="collection">
                             		<h3 class="menu-article">Creative Agency</h3>
                             		<div class="collection-header">
-                            			<span><i class="fa fa-user"></i>by <a href="page1.html">Leigh Taylor</a> </span>
+                            			<span><i class="fa fa-user"></i>by <a href="page1.html">{{ profile.fullName || profile.username }}</a> </span>
                             			<span><i class="fa fa-thumbs-o-up"></i> 360</span>
                             			<span><i class="fa fa-eye"></i> 789</span>
                             			<div class="edit-collection">

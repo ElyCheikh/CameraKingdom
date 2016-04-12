@@ -36,7 +36,7 @@ angular.module('NetworkWebApp', [
       controller: 'RegisterCtrl'
     });
     $routeProvider.when('/profile', {
-      templateUrl: 'partials/profile.html',
+      templateUrl: 'partials/myportfolio.html',
       controller: 'ProfileCtrl'
 
 		});
@@ -48,6 +48,27 @@ angular.module('NetworkWebApp', [
 			templateUrl: 'partials/verified.html',
 			controller: 'VerifiedCtrl'
 		});
+      $routeProvider.when('/error', {
+      templateUrl: 'partials/error.html',
+      controller: 'errorCtrl'
+    });
+    $routeProvider.when('/forgotPassword', {
+      templateUrl: 'partials/forgotPassword.html',
+      controller: 'forgotPassword'
+    });
+    $routeProvider.when('/email_pass_forgot', {
+      templateUrl: 'partials/email_pass_forgot.html',
+      controller: 'email_pass_forgotCtrl'
+    });
+/*     $routeProvider.when('/pass_recovery_email/:token', {
+      templateUrl: 'partials/passConfirm.html',
+      controller: 'passRecoveryCtrl'
+    });*/
+     $routeProvider.when('/passConfirm', {
+      templateUrl: 'partials/passConfirm.html',
+      controller: 'passConfirmCtrl'
+    });
+
  
 
   $routeProvider.otherwise({redirectTo: '/home'});

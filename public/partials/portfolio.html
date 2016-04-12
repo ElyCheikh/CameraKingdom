@@ -25,9 +25,11 @@
 									</div>
 								</div>
 							</div>
-							<p class="be-use-name">Leigh Taylor</p>
+							<div ng-controller="ProfileCtrl" >
+							<p class="be-use-name">{{ profile.fullName || profile.username }}</p>
 							<div class="be-user-info">
-								Barnsley, United Kingdom
+								{{profile.email}}
+							</div>
 							</div>
 							<div class="be-text-tags style-2">
 								<a href="page1.html">UI/UX</a>,
@@ -659,11 +661,12 @@
 									</div>																											
 								</div>                                                                 
                             </div>
+                            <div ng-controller="ProfileCtrl" >
                             <div class="tab-info">
                             	<div class="collection">
                             		<h3 class="menu-article">Creative Ideas</h3>
                             		<div class="collection-header">
-                            			<span><i class="fa fa-user"></i>by <a href="page1.html">Leigh Taylor</a> </span>
+                            			<span><i class="fa fa-user"></i>by <a href="page1.html">{{ profile.fullName || profile.username }}</a> </span>
                             			<span><i class="fa fa-thumbs-o-up"></i> 360</span>
                             			<span><i class="fa fa-eye"></i> 789</span>
                             		</div>
@@ -684,7 +687,7 @@
                             	<div class="collection">
                             		<h3 class="menu-article">Creative Agency</h3>
                             		<div class="collection-header">
-                            			<span><i class="fa fa-user"></i>by <a href="page1.html">Leigh Taylor</a> </span>
+                            			<span><i class="fa fa-user"></i>by <a href="page1.html">L{{ profile.fullName || profile.username }}</a> </span>
                             			<span><i class="fa fa-thumbs-o-up"></i> 360</span>
                             			<span><i class="fa fa-eye"></i> 789</span>
                             		</div>
@@ -765,7 +768,8 @@
 	                            		</a>
                             		</div>
                             	</div>                        	                            	
-                            </div>                          
+                            </div> 
+                           </div>                         
                         </div>
                     </div> 				
 				</div>				

@@ -1,13 +1,11 @@
 var express = require('express');
 var router = express.Router();
-<<<<<<< HEAD
-
 
 router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
-=======
+
 var Twit = require('twit');
 var config = require('../config.twitter');
 
@@ -133,6 +131,6 @@ router.get('/user_timeline/:user', function(req, res) {
     });
   }
 });
->>>>>>> ed394073b5b73b80312a0efc6faa200f4370a7a5
+
 
 module.exports = router;

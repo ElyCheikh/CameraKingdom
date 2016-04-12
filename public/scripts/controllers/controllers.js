@@ -917,20 +917,43 @@ app.controller('ProfileCtrl', function($scope, $http) {
 	  console.log("Profile Controller reporting for duty.");
 	$http.get("http://localhost:3000/account").success(function(data, status) {
     $scope.myVar = 'Profile Page';
-  //	console.log(data);
+  	console.log(data);
 		$scope.profile = data;
 	});
 });
 
-<<<<<<< HEAD
-app.controller('MessagesForTestCtrl', function (/* $scope, $location, $http */) {
-	console.log("Messages Controller reporting for duty.");
 
-
+app.controller('errorCtrl', ['$scope', function ($scope) {
+	console.log("Error Controller reporting for duty.");
+}]);
+app.controller('forgotPasswordCtrl', ['$scope', function ($scope) {
+	console.log("forgotPassword Controller reporting for duty.");
+}]);
+app.controller('email_pass_forgotCtrl', ['$scope', function ($scope) {
+	console.log("Email pass forgot Controller reporting for duty.");
+}]);
+/*app.controller('passRecoveryCtrl', ['$scope', function ($scope, $routeParams) {
+	console.log("passRecovery pass forgot Controller reporting for duty.");
+	console.log($routeParams.token)
+}]);*/
+app.controller('passConfirmCtrl', function ($scope, $routeParams, $http) {
+	console.log("passRecovery pass forgot Controller reporting for duty.");
+	$http.get("http://localhost:3000/gettoken").success(function(data, status) {
+    $scope.myVar = 'Profile Page';
+    console.log('agular data')
+  	console.log(data);
+  	var str = data ;
+  	str = str.slice(0, -1);
+  	while(str.charAt(0) === '"')
+    str = str.substr(1);
+   console.log('new toekn');
+   console.log(str);
+		$scope.token = str;
+	});
 });
 
-=======
+
 app.controller('MessagesForTestCtrl',['$scope', function($rootScope){
 	$rootScope.globalFoo();
 }]);
->>>>>>> ed394073b5b73b80312a0efc6faa200f4370a7a5
+
