@@ -35,8 +35,9 @@ router.get('/searchtweets/:user', function(req, res) {
   // request data
   twitter.get('search/tweets', { q: 'photographe since:2011-07-11', count: 100 }, function (err, data, resp) {
     tweets = data;
-	console.log('search tweets');
+	//console.log('search tweets');
 //console.log(tweets);
+  //  console.log(tweets);
 
     var i = 0, len = tweets.length;
 
@@ -60,6 +61,7 @@ router.get('/searchtweets/:user', function(req, res) {
 
     // request data
     twitter.get(OEMBED_URL, params, function (err, data, resp) {
+      console.log(data);
       tweet.oEmbed = data;
       oEmbedTweets.push(tweet);
 
