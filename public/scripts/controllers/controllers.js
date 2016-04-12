@@ -206,7 +206,7 @@ app.controller('TweetList', function($scope, $resource, $timeout) {
 
       var params = {
         action: 'user_timeline',
-        user:	'twitterdev'
+        user:	'photo'
       };
 
       if ($scope.maxId) {
