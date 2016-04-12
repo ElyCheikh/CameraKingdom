@@ -19,7 +19,7 @@ var Account = require('./models/account');
 var config = require('./oauth.js');
 var routes = require('./routes/index');
 var instagram = require('./routes/instagram');
-//var youtube = require('./routes/youtube');
+var youtube = require('./routes/youtube');
 var users = require('./routes/users');
 //var tweets = require('./routes/tweets');
 var ig = require('instagram-node').instagram();
@@ -75,7 +75,7 @@ app.use('/', routes);
 app.use('/users', users);
 //app.use('/tweets', tweets);
 app.use('/instagram', instagram);
-//app.use('/youtube', youtube);
+app.use('/youtube', youtube);
 ////////////////////////////////////////////////////////////
 app.get('/account', ensureAuthenticated, function(req, res) {
   console.log('cooooooooooooooooool');
