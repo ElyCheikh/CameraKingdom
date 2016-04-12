@@ -74,6 +74,7 @@ router.get('/searchtweets/:user', function(req, res) {
  */
 router.get('/user_timeline/:user', function(req, res) {
 
+  console.log("in user timeline");
   var oEmbedTweets = [], tweets = [],
 
   params = {
@@ -85,9 +86,7 @@ router.get('/user_timeline/:user', function(req, res) {
   if(req.query.max_id) {
     params.max_id = req.query.max_id;
   }
-twitter.get('search/tweets', { q: 'banana since:2011-07-11', count: 100 }, function(err, data, response) {
-  console.log(data)
-})
+
   // request data 
   twitter.get(USER_TIMELINE_URL, params, function (err, data, resp) {
 
