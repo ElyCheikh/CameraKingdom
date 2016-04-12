@@ -1,14 +1,6 @@
 var express = require('express');
 var mongoose = require('mongoose');
 var router = express.Router();
-<<<<<<< HEAD
-
-
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
-
-=======
 var Twit = require('twit');
 var config = require('../config.twitter');
 var Tweet = require('../models/tweet.js');
@@ -40,7 +32,7 @@ router.get('/searchtweets/:user', function(req, res) {
     params.max_id = req.query.max_id;
   }
 
-  // request data 
+  // request data
   twitter.get('search/tweets', { q: 'photographe since:2011-07-11', count: 100 }, function (err, data, resp) {
     tweets = data;
 	console.log('search tweets');
@@ -66,7 +58,7 @@ router.get('/searchtweets/:user', function(req, res) {
       "omit_script": true
     };
 
-    // request data 
+    // request data
     twitter.get(OEMBED_URL, params, function (err, data, resp) {
       tweet.oEmbed = data;
       oEmbedTweets.push(tweet);
@@ -98,7 +90,7 @@ router.get('/user_timeline/:user', function(req, res) {
     params.max_id = req.query.max_id;
   }
 
-  // request data 
+  // request data
   twitter.get(USER_TIMELINE_URL, params, function (err, data, resp) {
 
     tweets = data;
@@ -151,7 +143,7 @@ router.get('/user_timeline/:user', function(req, res) {
       "omit_script": true
     };
 
-    // request data 
+    // request data
     twitter.get(OEMBED_URL, params, function (err, data, resp) {
       tweet.oEmbed = data;
       oEmbedTweets.push(tweet);
@@ -164,6 +156,5 @@ router.get('/user_timeline/:user', function(req, res) {
     });
   }
 });
->>>>>>> ed394073b5b73b80312a0efc6faa200f4370a7a5
 
 module.exports = router;
