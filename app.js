@@ -21,7 +21,7 @@ var routes = require('./routes/index');
 var instagram = require('./routes/instagram');
 var youtube = require('./routes/youtube');
 var users = require('./routes/users');
-//var tweets = require('./routes/tweets');
+var tweets = require('./routes/tweets');
 var ig = require('instagram-node').instagram();
 var app = express();
 var multer = require('multer');
@@ -122,7 +122,7 @@ app.options('/upload', function(req, res) {
 
 app.use('/', routes);
 app.use('/users', users);
-//app.use('/tweets', tweets);
+app.use('/tweets', tweets);
 app.use('/instagram', instagram);
 app.use('/youtube', youtube);
 ////////////////////////////////////////////////////////////
