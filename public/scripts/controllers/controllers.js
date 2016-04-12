@@ -757,9 +757,10 @@ app.controller('ChallengesCtrl',['$scope', function($rootScope){
 	console.log("ChallengesCtrl Controller reporting for duty.");
 	$rootScope.globalFoo();
 }]);
-app.controller('TweetList',['$scope', function($scope,$rootScope, $resource, $timeout) {
-	$rootScope.globalFoo();
+app.controller('TweetList', function($scope, $resource, $timeout) {
 
+ 	//$rootScope.globalFoo();
+	console.log("twitter ctrl");
     /**
      * init controller and set defaults
      */
@@ -840,7 +841,7 @@ app.controller('TweetList',['$scope', function($scope,$rootScope, $resource, $ti
     }
 
     init();
-}]);
+});
 /**
  * Controls the Social Tweets
  */
@@ -857,6 +858,7 @@ app.controller('MyportfolioCtrl',['$scope', function($rootScope){
  * Controls the Addwork
  */
 app.controller('AddworkCtrl',['$scope', function($rootScope){
+	console.log("AddworkCtrl Controller reporting for duty.");
  	$rootScope.globalFoo();
 }]);
 /**
@@ -923,6 +925,7 @@ app.controller('ProfileCtrl', function($scope, $http) {
 });
 
 
+<<<<<<< HEAD
 app.controller('errorCtrl', ['$scope', function ($scope) {
 	console.log("Error Controller reporting for duty.");
 }]);
@@ -957,3 +960,23 @@ app.controller('MessagesForTestCtrl',['$scope', function($rootScope){
 	$rootScope.globalFoo();
 }]);
 
+=======
+app.controller('MessagesForTestCtrl',['$scope', function($rootScope){
+	$rootScope.globalFoo();
+}]);
+/**
+ * Controls the Instagram
+ */
+app.controller('InstagramCtrl', function($scope, InstagramFactory) {
+
+
+
+	loadPhotosFromInsta();
+	function loadPhotosFromInsta(){
+		InstagramFactory.photos().success(function (response) {
+			//console.log(response);
+			$scope.photos = response;
+		});
+	}
+});
+>>>>>>> 8ce8783c3eb4c1c7377adba2705eb542cd639252
