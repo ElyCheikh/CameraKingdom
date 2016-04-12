@@ -10,7 +10,7 @@ var flash = require('connect-flash');
 var token = randtoken.generate(32);
 
 router.get('/tweets', function(req, res, next) {
-  res.render('twitter/index.ejs', {
+  res.render('twitter/index2.ejs', {
     user: req.user
   });
 });
