@@ -1,0 +1,29 @@
+<div id="content-block" class="gallery-block">
+    <div class="head-bg">
+        <div class="head-bg-img"></div>
+        <div class="head-bg-content">
+            <h1>My youtube gallery</h1>
+        </div>
+    </div>
+    <div class="custom-container gallery-container">
+        <div class="container">
+            <div class="gallery-box clearfix" ng-repeat="p in videos">
+                <a class="gallery-a" href="https://www.youtube.com/watch?v={{ p.videoId }}"><img src="{{ p.thumbnails.default.url }}" alt="img"></a>
+                <div class="gallery-info">
+                    <h3>{{ p.title }}</h3>
+                    <p>
+                    <li>{{ p.description}}</li>
+                    </p>
+                </div>
+                <div class="gallery-btn">
+                    <a class="btn-login btn color-1 size-2 hover-2" href="https://www.youtube.com/watch?v={{ p.videoId }}">
+                        VIEW
+                    </a>
+                    <a class="btn-login btn color-1 size-2 hover-2" href="http://keepvid.com/?url=https://www.youtube.com/watch?v={{ p.videoId }}">
+                        DOWNLOAD
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

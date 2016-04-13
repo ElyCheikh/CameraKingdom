@@ -53,7 +53,7 @@ services.factory('YoutubeFactory', ['$http', function ($http){
 
 	var dataFactory = {};
 
-	dataFactory.photos = function (){
+	dataFactory.videos = function (){
 		return $http.get('http://localhost:3000/youtube');
 	};
 
