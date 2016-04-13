@@ -925,7 +925,7 @@ app.controller('ProfileCtrl', function($scope, $http) {
 });
 
 
-<<<<<<< HEAD
+
 app.controller('errorCtrl', ['$scope', function ($scope) {
 	console.log("Error Controller reporting for duty.");
 }]);
@@ -935,10 +935,7 @@ app.controller('forgotPasswordCtrl', ['$scope', function ($scope) {
 app.controller('email_pass_forgotCtrl', ['$scope', function ($scope) {
 	console.log("Email pass forgot Controller reporting for duty.");
 }]);
-/*app.controller('passRecoveryCtrl', ['$scope', function ($scope, $routeParams) {
-	console.log("passRecovery pass forgot Controller reporting for duty.");
-	console.log($routeParams.token)
-}]);*/
+
 app.controller('passConfirmCtrl', function ($scope, $routeParams, $http) {
 	console.log("passRecovery pass forgot Controller reporting for duty.");
 	$http.get("http://localhost:3000/gettoken").success(function(data, status) {
@@ -960,7 +957,7 @@ app.controller('MessagesForTestCtrl',['$scope', function($rootScope){
 	$rootScope.globalFoo();
 }]);
 
-=======
+
 app.controller('MessagesForTestCtrl',['$scope', function($rootScope){
 	$rootScope.globalFoo();
 }]);
@@ -979,4 +976,3 @@ app.controller('InstagramCtrl', function($scope, InstagramFactory) {
 		});
 	}
 });
->>>>>>> 8ce8783c3eb4c1c7377adba2705eb542cd639252
