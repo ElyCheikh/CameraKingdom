@@ -951,7 +951,17 @@ app.controller('passConfirmCtrl', function ($scope, $routeParams, $http) {
 		$scope.token = str;
 	});
 });
-
+app.controller('AddcontactCtrl', function ($scope) {
+	console.log("Add Contact Controller reporting for duty.");
+});
+app.controller("contactCtrl", function ($scope, $http) {
+console.log("list Contact Controller reporting for duty.");
+	$http.get("http://localhost:3000/contact").success(function(data, status) {
+    $scope.myVar = 'Profile Page';
+  	console.log(data);
+		$scope.list = data;
+	});
+});
 
 app.controller('MessagesForTestCtrl',['$scope', function($rootScope){
 	$rootScope.globalFoo();

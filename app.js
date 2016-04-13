@@ -26,6 +26,7 @@ var ig = require('instagram-node').instagram();
 var app = express();
 var multer = require('multer');
 var session = require('express-session');
+var contact = require('./routes/contact');
 
 
 app.use(function (req, res, next) {
@@ -131,6 +132,7 @@ app.use('/users', users);
 app.use('/tweets', tweets);
 app.use('/instagram', instagram);
 app.use('/youtube', youtube);
+app.use('/contact', contact);
 ////////////////////////////////////////////////////////////
 app.get('/account', ensureAuthenticated, function(req, res) {
   console.log('cooooooooooooooooool');

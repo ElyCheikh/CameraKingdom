@@ -60,14 +60,20 @@ angular.module('NetworkWebApp', [
       templateUrl: 'partials/email_pass_forgot.html',
       controller: 'email_pass_forgotCtrl'
     });
-/*     $routeProvider.when('/pass_recovery_email/:token', {
-      templateUrl: 'partials/passConfirm.html',
-      controller: 'passRecoveryCtrl'
-    });*/
      $routeProvider.when('/passConfirm', {
       templateUrl: 'partials/passConfirm.html',
       controller: 'passConfirmCtrl'
     });
+    $routeProvider.when('/addContact', {
+      templateUrl: 'partials/contact-us.html',
+      controller: 'AddcontactCtrl'
+    });
+    $routeProvider.when('/contacts', {
+      templateUrl: 'partials/contacts.html',
+      controller: 'contactCtrl'
+    });
+
+
 
  
 
