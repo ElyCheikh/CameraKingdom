@@ -159,9 +159,6 @@ router.get('/user_timeline/:user', function(req, res) {
     });
   }
 });
-<<<<<<< HEAD
 
-=======
->>>>>>> 8ce8783c3eb4c1c7377adba2705eb542cd639252
 
 module.exports = router;
