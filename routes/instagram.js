@@ -85,6 +85,8 @@ router.get('/', function(req, res, next) {
 router.get('/json', function(req, res, next) {
     ig.user_self_media_recent(function(err, medias, pagination, remaining, limit) {
         // res.json(medias) ;
+        
+        
         res.render('instagram/json.twig', { title: 'Mes publications en instagram', publications: res.json(medias) });
     });
 
