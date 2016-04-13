@@ -986,3 +986,14 @@ app.controller('InstagramCtrl', function($scope, InstagramFactory) {
 		});
 	}
 });
+
+app.controller('YoutubeCtrl', function($scope, YoutubeFactory) {
+	
+	loadFromYoutube();
+	function loadFromYoutube(){
+		YoutubeFactory.videos().success(function (response) {
+			//console.log(response);
+			$scope.videos = response;
+		});
+	}
+});

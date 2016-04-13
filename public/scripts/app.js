@@ -7,7 +7,7 @@ angular.module('NetworkWebApp', [
     // Pages
     $routeProvider.when("/home", {templateUrl: "partials/index.html", controller: "HomeCtrl"});
     $routeProvider.when("/activity", {templateUrl: "partials/activity.html", controller: "ActivityCtrl"});
-  $routeProvider.when("/claims", {templateUrl: "partials/claims.html", controller: "ClaimsCtrl"});
+    $routeProvider.when("/claims", {templateUrl: "partials/claims.html", controller: "ClaimsCtrl"});
     $routeProvider.when("/social", {templateUrl: "partials/social.html", controller: "SocialCtrl"});
 
     $routeProvider.when("/challenges", {templateUrl: "partials/challenges.html", controller: "ChallengesCtrl"});
@@ -22,6 +22,7 @@ angular.module('NetworkWebApp', [
     // discover
     $routeProvider.when("/discover/people", {templateUrl: "partials/people.html", controller: "PeopleCtrl"});
     $routeProvider.when("/discover/gallerie", {templateUrl: "partials/gallery.html", controller:"InstagramCtrl"});
+    $routeProvider.when("/discover/youtube", {templateUrl: "partials/youtube.html", controller:"YoutubeCtrl"});
     $routeProvider.when("/discover/explore", {templateUrl: "partials/search.html", controller: "SearchCtrl"});
     $routeProvider.when('/login', {
       templateUrl: 'partials/login.html',
