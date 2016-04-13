@@ -3,6 +3,7 @@
  */
 var express = require('express');
 var http = require('http');
+var Instagram = require('../models/instagram.js');
 var router = express.Router();
 
 var ig = require('instagram-node').instagram();
@@ -84,9 +85,40 @@ router.get('/', function(req, res, next) {
 });
 router.get('/json', function(req, res, next) {
     ig.user_self_media_recent(function(err, medias, pagination, remaining, limit) {
-        // res.json(medias) ;
-        
-        
+      console.log('medias');
+        console.log(medias);
+        console.log('medias');
+
+
+        for(i=0; i < medias.length; i++) {
+            if(medias[i].location != null){
+             var loc = medias[i].location.name;
+            }else{
+               loc = "";
+            }
+            new Instagram({
+                photo: medias[i].images.thumbnail.url,
+                type : medias[i].type,
+                location:  loc
+            })
+                .save(function(err, Tweet) {
+                    if(err){
+                        console.log(err);
+                    }else{
+                        console.log('Saved Succcesfully');
+                    }
+                });
+        }
+
+        Instagram.find(function(err, list) {
+            if (err) {
+                console.log(err);
+            } else {
+                console.log('Cool');
+                console.log(list);
+            }
+
+        });
         res.render('instagram/json.twig', { title: 'Mes publications en instagram', publications: res.json(medias) });
     });
 
