@@ -13,7 +13,6 @@ var Account = new Schema({
     forgot: String,
     provider: String,
     created: { type: Date, default: Date.now }
-   
 });
 Account.plugin(passportLocalMongoose, {usernameField: "email"});
 module.exports = mongoose.model('Account', Account);
