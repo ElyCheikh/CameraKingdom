@@ -37,9 +37,10 @@ router.post('/register', function(req, res) {
     function(err, account) {
       if (err) {
         console.log(err);
-        return res.render('auth/register.twig', {
+      /*  return res.render('auth/register.twig', {
           account: account
-        });
+        });*/
+        res.redirect('#/error');
       }
       EmailVerif(req.body.email);
       //res.render('verify_email.twig'); node
@@ -56,7 +57,7 @@ router.get('/login', function(req, res) {
 
 router.post('/login', passport.authenticate('local', {
   //successRedirect: '/',
-  failureRedirect: '/#/login',
+  failureRedirect: '/#/error',
   failureFlash: true
 }), function(req, res, next) {
   console.log(req.body.username);
@@ -73,7 +74,7 @@ router.post('/login', passport.authenticate('local', {
       res.redirect('/#/verify');
     } else(doc.email_verified == 'OK')
     console.log(doc.email_verified);
-    res.redirect('/#/profile');
+    res.redirect('/#/myportfolio');
   });
 });
 
@@ -107,22 +108,25 @@ router.get('/verify_email/:token', function(req, res, next) {
 
 
 router.get('/forgotPassword', function(req, res, next) {
-  res.render('auth/forgot.twig', {
+ /* res.render('auth/forgot.twig', {
     arg: 'Frogot'
-  })
+  })*/
+  res.redirect('/#/forgotPassword');
 });
 
 router.post('/action_pass_forgot', function(req, res, next) {
   console.log(req.body.groupe1);
   if (req.body.groupe1 == 'email') {
-    res.render('auth/email_pass_forgot.twig', {
+  /*  res.render('auth/email_pass_forgot.twig', {
       arg: 'email'
-    });
+    });*/
+    res.redirect('/#/email_pass_forgot');
   }
   if (req.body.groupe1 == 'sms') {
-    res.render('auth/tel_pass_forgot.twig', {
+  /*  res.render('auth/tel_pass_forgot.twig', {
       arg: 'sms'
-    });
+    });*/
+    res.redirect('/#/tel_pass_forgot');
   }
 
 });
@@ -147,14 +151,17 @@ router.post('/send_email_forgot', function(req, res, next) {
 
       }
     });
-    res.render('auth/email_pass_forgot.twig', {
+   /* res.render('auth/email_pass_forgot.twig', {
       arg: 'bla'
-    });
+    });*/
+    res.redirect('/#/verify');
+
   } else {
-    res.render('error', {
+   /* res.render('error', {
       message: err.message,
       error: {}
-    });
+    });*/
+    res.redirect('/#/error')
   }
 });
 
@@ -166,7 +173,7 @@ router.post('/ResetPassword', function(req, res, next) {
   console.log(req.body.token);
 
   Account.findOne({
-    forgot: req.body.token
+    forgot: req.session.token
   }, function(err, account) {
     if (err) {
       console.log('error 1');
@@ -215,10 +222,7 @@ router.post('/ResetPassword', function(req, res, next) {
                   console.log('++++++++++++++++++++++++++');
                   console.log(err);
                 });
-
-
-
-                res.redirect('/login');
+                res.redirect('/#/verified');
               }
             });
           //////////////////////////
@@ -229,12 +233,23 @@ router.post('/ResetPassword', function(req, res, next) {
 
 });
 
-router.get('/pass_recovery_email/:token', function(req, res, next) {
-
-  res.render('auth/passsConfirm.twig', {
-    arg: req.params.token
-  });
+router.get('/gettoken', function (req, res, next) {
+   console.log(req.session.token);
+   res.json(req.session.token);
 });
+
+router.get('/pass_recovery_email/:token', function(req, res, next) {
+  /*res.render('auth/passsConfirm.twig', {
+    arg: req.params.token
+  });*/
+  
+ req.session.token = req.params.token;
+ console.log(req.params.token)
+ console.log('session');
+ console.log(req.session.token);
+ res.redirect('/#/passConfirm');
+});
+
 
 passRecoverByEmail = function(recepient) {
   var transporter = nodemailer.createTransport("SMTP", {
@@ -287,3 +302,4 @@ EmailVerif = function(recepient) {
 
 
 module.exports = router;
+

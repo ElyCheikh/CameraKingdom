@@ -1,0 +1,29 @@
+<div id="content-block" class="gallery-block">
+	<div class="head-bg">
+		<div class="head-bg-img"></div>
+		<div class="head-bg-content">
+			<h1>My gallery</h1>
+		</div>
+	</div>
+	<div class="custom-container gallery-container">
+		<div class="container">
+			<div class="gallery-box clearfix" ng-repeat="p in photos">
+				<a class="gallery-a" href="#"><img src="{{ p.images.thumbnail.url }}" alt="img"></a>
+				<div class="gallery-info">
+					<h3>{{ p.location.name}}</h3>
+					<p ng-repeat="t in p.tags">
+					<li>{{ t }}</li>
+					</p>
+				</div>
+				<div class="gallery-btn">
+					<a class="btn-login btn color-1 size-2 hover-2" href="#">
+						FOLLOW
+					</a>
+					<a class="btn-login btn color-1 size-2 hover-2" href="#">
+						JOIN
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

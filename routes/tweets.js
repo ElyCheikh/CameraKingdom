@@ -1,6 +1,7 @@
 var express = require('express');
 var mongoose = require('mongoose');
 var router = express.Router();
+
 var Twit = require('twit');
 var config = require('../config.twitter');
 var Tweet = require('../models/tweet.js');
@@ -158,5 +159,6 @@ router.get('/user_timeline/:user', function(req, res) {
     });
   }
 });
+
 
 module.exports = router;

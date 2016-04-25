@@ -1,0 +1,14 @@
+{% extends 'layout.twig' %}
+
+{% block content %}
+    <form action="/contact/add" method="post">
+    	
+    	name:<input type="text" name="name"></input><br><br>	
+    	subject: <input type="text" name="subject"></input><br><br>	
+    	email: <input type="email" name="email"></input><br><br>	
+    	phone: <input type="text" name="phone"></input><br><br>	
+    	text: <input type="text" name="text"></input>
+    	<input type="submit" value="envoyer"></input>
+    </form>
+
+{% endblock %}

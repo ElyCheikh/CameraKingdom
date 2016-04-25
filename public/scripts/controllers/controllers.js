@@ -858,6 +858,7 @@ app.controller('MyportfolioCtrl',['$scope', function($rootScope){
  * Controls the Addwork
  */
 app.controller('AddworkCtrl',['$scope', function($rootScope){
+	console.log("AddworkCtrl Controller reporting for duty.");
  	$rootScope.globalFoo();
 }]);
 /**
@@ -918,10 +919,53 @@ app.controller('ProfileCtrl', function($scope, $http) {
 	  console.log("Profile Controller reporting for duty.");
 	$http.get("http://localhost:3000/account").success(function(data, status) {
     $scope.myVar = 'Profile Page';
-  //	console.log(data);
+  	console.log(data);
 		$scope.profile = data;
 	});
 });
+
+
+
+app.controller('errorCtrl', ['$scope', function ($scope) {
+	console.log("Error Controller reporting for duty.");
+}]);
+app.controller('forgotPasswordCtrl', ['$scope', function ($scope) {
+	console.log("forgotPassword Controller reporting for duty.");
+}]);
+app.controller('email_pass_forgotCtrl', ['$scope', function ($scope) {
+	console.log("Email pass forgot Controller reporting for duty.");
+}]);
+
+app.controller('passConfirmCtrl', function ($scope, $routeParams, $http) {
+	console.log("passRecovery pass forgot Controller reporting for duty.");
+	$http.get("http://localhost:3000/gettoken").success(function(data, status) {
+    $scope.myVar = 'Profile Page';
+    console.log('agular data')
+  	console.log(data);
+  	var str = data ;
+  	str = str.slice(0, -1);
+  	while(str.charAt(0) === '"')
+    str = str.substr(1);
+   console.log('new toekn');
+   console.log(str);
+		$scope.token = str;
+	});
+});
+app.controller('AddcontactCtrl', function ($scope) {
+	console.log("Add Contact Controller reporting for duty.");
+});
+app.controller("contactCtrl", function ($scope, $http) {
+console.log("list Contact Controller reporting for duty.");
+	$http.get("http://localhost:3000/contact").success(function(data, status) {
+    $scope.myVar = 'Profile Page';
+  	console.log(data);
+		$scope.list = data;
+	});
+});
+
+app.controller('MessagesForTestCtrl',['$scope', function($rootScope){
+	$rootScope.globalFoo();
+}]);
 
 
 app.controller('MessagesForTestCtrl',['$scope', function($rootScope){
@@ -939,6 +983,17 @@ app.controller('InstagramCtrl', function($scope, InstagramFactory) {
 		InstagramFactory.photos().success(function (response) {
 			//console.log(response);
 			$scope.photos = response;
+		});
+	}
+});
+
+app.controller('YoutubeCtrl', function($scope, YoutubeFactory) {
+	
+	loadFromYoutube();
+	function loadFromYoutube(){
+		YoutubeFactory.videos().success(function (response) {
+			//console.log(response);
+			$scope.videos = response;
 		});
 	}
 });

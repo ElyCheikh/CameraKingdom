@@ -49,42 +49,44 @@
 				</div>
 			</div>
 
-			<div class="block">
+			<div class="block" ng-controller="AddcontactCtrl">
 				<h2 class="content-title">Leave a message</h2>
 				<div class="block-subtitle">Maecenas et mollis ligula. Donec finibus feugiat laoreet.</div>							
 				<div class="contect-form">
-					<form class="form-block">
+
+
+					<form action="/contact/add" method="post" class="form-block">
 						<div class="row">
 							<div class="col-xs-12 col-sm-6">
 								<div class="form-group fl_icon">
 									<div class="icon"><img src="img/user-g-ico.png" alt=""></div>
-									<input class="form-input" type="text" required placeholder="Your name">
+									<input class="form-input" type="text" name="name" required placeholder="Your name">
 								</div>
 							</div>
 							<div class="col-xs-12 col-sm-6 fl_icon">
 								<div class="form-group fl_icon">
 									<div class="icon"><img src="img/subject-ico.png" alt=""></div>
-									<input class="form-input" type="text" required placeholder="Subject">
+									<input class="form-input" type="text" name="subject" required placeholder="Subject">
 								</div>
 							</div>						
 							<div class="col-xs-12 col-sm-6 fl_icon">
 								<div class="form-group fl_icon">
 									<div class="icon"><img src="img/mail-g-ico.png" alt=""></div>
-									<input class="form-input" type="text" required placeholder="Your email">
+									<input class="form-input" type="text"  name="email" required placeholder="Your email">
 								</div>
 							</div>
 							<div class="col-xs-12 col-sm-6 fl_icon">
 								<div class="form-group fl_icon">
 									<div class="icon"><img src="img/phone-g-ico.png" alt=""></div>
-									<input class="form-input" type="text" required placeholder="Your phone">
+									<input class="form-input" type="text" name="phone" required placeholder="Your phone">
 								</div>
 							</div>						
 							<div class="col-xs-12">									
 								<div class="form-group">
-									<textarea class="form-input" required placeholder="Your message"></textarea>
+									<textarea class="form-input" required  name="text" placeholder="Your message"></textarea>
 								</div>
 							</div>
-							<button class="btn color-1 size-2 hover-1 pull-right">submit</button>
+							<button type="submit" class="btn color-1 size-2 hover-1 pull-right" >submit</button>
 						</div>
 					</form>
 				</div>
