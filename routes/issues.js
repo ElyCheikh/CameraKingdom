@@ -1,8 +1,8 @@
 var express = require('express');
  var app = express.Router();
 var mongolian = require('mongolian');
-//var MONGO_DB = process.env.MONGOHQ_URL || 'mongodb://localhost:27017/CameraKingdom';
-var MONGO_DB = process.env.MONGOHQ_URL || 'mongodb://elycheikh:ely4twin1@ds011379.mlab.com:11379/camerakingdom';
+var MONGO_DB = process.env.MONGOHQ_URL || 'mongodb://localhost:27017/CameraKingdom';
+//var MONGO_DB = process.env.MONGOHQ_URL || 'mongodb://elycheikh:ely4twin1@ds011379.mlab.com:11379/camerakingdom';
 
 var db = new mongolian(MONGO_DB);
 var ObjectId = mongolian.ObjectId;
