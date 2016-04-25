@@ -101,8 +101,8 @@ passport.deserializeUser(function(id, done) {
   });
 });
 
-//mongoose.connect('mongodb://elycheikh:ely4twin1@ds011379.mlab.com:11379/camerakingdom');
-mongoose.connect('mongodb://localhost:27017/CameraKingdom');
+mongoose.connect('mongodb://elycheikh:ely4twin1@ds011379.mlab.com:11379/camerakingdom');
+//mongoose.connect('mongodb://localhost:27017/CameraKingdom');
 
 
 // upload code //sofien
