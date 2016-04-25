@@ -7,11 +7,69 @@
 
 			</div>	
 		</div>
+	<div class="contect-form">
+
+	<ng-include src="'/partials/login-poll.html'"></ng-include>
+</div>
+	<div class="contect-form" ng-show="auth.loggedIn">
+		<h3>Add an Issue</h3>
+
+		<form class="form-block">
+			<div class="row">
+				<div class="col-xs-12 col-sm-6">
+					<div class="form-group fl_icon">
+						<div class="icon"><img src="img/user-g-ico.png" alt=""></div>
+						<input class="form-input" type="text" required="" placeholder="firstOption" ng-model="firstOption">
+					</div>
+				</div>
+
+				<div class="col-xs-12 col-sm-6 fl_icon">
+					<div class="form-group fl_icon">
+						<div class="icon"><img src="img/subject-ico.png" alt=""></div>
+						<input class="form-input" type="text" required="" placeholder="secondOption" ng-model="secondOption">
+					</div>
+				</div>
+				<button class="btn color-1 size-2 hover-1 pull-right" ng-click="create()">Create Poll</button>
+			</div>
+		</form>
+	</div>
 		<div class="custom-container gallery-container">
 			<div class="container">
-				<iframe src="http://the-issues.herokuapp.com/#/details/57175ab10000000300000004" width="1100" height="500"></iframe>
+				<div class="gallery-box clearfix" ng-repeat="issue in issues | orderBy:'-created'">
+					<a class="gallery-a" href="#"><img src="img/gallery-img-1.png" alt="img"></a>
+					<div class="gallery-info">
+						<h3>
+
+							<div class="first bar" colored-bar total="issue.first.votes" text="issue.first.name"></div></h3>
+						<span>VS</span>
+						<h3>
+							<div class="second bar" colored-bar total="issue.second.votes" text="issue.second.name"></div>
+						</h3>
+						</div>
+					<div class="gallery-btn">
+						<a class="btn-login btn color-1 size-2 hover-2" href="#/challengesdetails/{{issue._id}}">
+							JOIN
+						</a>
+						<a class="btn-login btn color-1 size-2 hover-2" href="#/challengesdetails/{{issue._id}}">
+							result
+						</a>
+
+					</div>
+				</div>
+
+				<div class="row">
+				<div class="main">
+
+					<div class="sidebar2">
 
 
-			 </div>
+
+					</div>
+
+
+				</div>
+			</div>
+
+			</div>
  		</div>
 	</div>
