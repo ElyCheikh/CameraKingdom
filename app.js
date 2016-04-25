@@ -23,13 +23,22 @@ var payment = require('./routes/payment');
 var youtube = require('./routes/youtube');
 var users = require('./routes/users');
 var tweets = require('./routes/tweets');
+var issues = require('./routes/issues');
 var ig = require('instagram-node').instagram();
 var app = express();
 var multer = require('multer');
 var session = require('express-session');
 var contact = require('./routes/contact');
-
-
+//----------------------------------------
+// added by amine for test
+/*
+var mongolian = require('mongolian');
+var MONGO_DB = process.env.MONGOHQ_URL || 'mongodb://localhost/camerakingdom';
+var db = new mongolian(MONGO_DB);
+var ObjectId = mongolian.ObjectId;
+ObjectId.prototype.toJSON = ObjectId.prototype.toString;
+*/
+//----------------------------------------
 app.use(function (req, res, next) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
@@ -71,7 +80,11 @@ app.use(flash());
 
 app.use(passport.initialize());
 app.use(passport.session());
+//--------------------------------------------------------
 
+
+
+//----------------------------------------------------------
 passport.use(new LocalStrategy(Account.authenticate()));
 //passport.serializeUser(Account.serializeUser());
 //passport.deserializeUser(Account.deserializeUser());
@@ -88,7 +101,8 @@ passport.deserializeUser(function(id, done) {
   });
 });
 
-mongoose.connect('mongodb://elycheikh:ely4twin1@ds011379.mlab.com:11379/camerakingdom');
+//mongoose.connect('mongodb://elycheikh:ely4twin1@ds011379.mlab.com:11379/camerakingdom');
+mongoose.connect('mongodb://localhost:27017/CameraKingdom');
 
 
 // upload code //sofien
@@ -131,6 +145,7 @@ app.options('/upload', function(req, res) {
 app.use('/', routes);
 app.use('/users', users);
 app.use('/tweets', tweets);
+app.use('/issues/', issues);
 app.use('/instagram', instagram);
 app.use('/payment', payment);
 app.use('/youtube', youtube);
