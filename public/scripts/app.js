@@ -10,7 +10,8 @@ angular.module('NetworkWebApp', [
     $routeProvider.when("/claims", {templateUrl: "partials/claims.html", controller: "ClaimsCtrl"});
     $routeProvider.when("/social", {templateUrl: "partials/social.html", controller: "SocialCtrl"});
 
-    $routeProvider.when("/challenges", {templateUrl: "partials/challenges.html", controller: "ChallengesCtrl"});
+  $routeProvider.when("/challenges", {templateUrl: "partials/challenges.html", controller: "IssuesController"});
+  $routeProvider.when("/challengesdetails/:_id", {templateUrl: "partials/issue.html", controller: "IssueDetailsController"});
     $routeProvider.when("/messages", {templateUrl: "partials/messages-2.html", controller: "MessagesCtrl"});
 
     $routeProvider.when("/myportfolio", {templateUrl: "partials/myportfolio.html", controller:"MyportfolioCtrl"});
