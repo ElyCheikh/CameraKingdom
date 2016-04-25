@@ -19,6 +19,7 @@ var Account = require('./models/account');
 var config = require('./oauth.js');
 var routes = require('./routes/index');
 var instagram = require('./routes/instagram');
+var payment = require('./routes/payment');
 var youtube = require('./routes/youtube');
 var users = require('./routes/users');
 var tweets = require('./routes/tweets');
@@ -125,6 +126,7 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/tweets', tweets);
 app.use('/instagram', instagram);
+app.use('/payment', payment);
 app.use('/youtube', youtube);
 ////////////////////////////////////////////////////////////
 app.get('/account', ensureAuthenticated, function(req, res) {
