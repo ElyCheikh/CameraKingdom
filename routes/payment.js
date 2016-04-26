@@ -28,7 +28,7 @@ var params = {
     }
 };
 router.post('/pay', function(req, res) {
-console.log('msg test sof : '+req.body.token);
+console.log(req.body.token);
  params.token=   req.body.token;
     params.ccNo=req.body.ccNo;
     params.expMonth=req.body.expMonth;
@@ -36,9 +36,9 @@ console.log('msg test sof : '+req.body.token);
     params.cvv=req.body.cvv;
     tco.checkout.authorize(params, function (error, data) {
         if (error) {
-            console.log('payment error 1:'+error.message);
+            console.log(error.message);
         } else {
-            console.log(JSON.stringify(data));
+            res.json(JSON.stringify(data));
         }
     });
 });
