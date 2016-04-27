@@ -3,10 +3,22 @@ var router = express.Router();
 
 var Media = require('../models/media.js');
 
+router.get('/', function(req, res, next) {
+    Media.find(function(err, list) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log(list);
+            res.json(list);
+        }
+
+    });
+});
+
 router.post('/upload', function (req, res, next) {
     new Media({
         titre: req.body.titre,
-        filename: req.body.filename
+        nomfichier: req.body.filename
     })
         .save(function(err) {
             if(err){

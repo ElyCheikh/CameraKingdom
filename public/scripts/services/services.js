@@ -61,3 +61,15 @@ services.factory('YoutubeFactory', ['$http', function ($http){
 
 }]);
 
+//Youtube
+services.factory('MediaFactory', ['$http', function ($http){
+
+	var dataFactory = {};
+
+	dataFactory.medias = function (){
+		return $http.get('http://localhost:3000/media');
+	};
+
+	return dataFactory;
+
+}]);
