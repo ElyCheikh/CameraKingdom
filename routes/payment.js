@@ -29,6 +29,7 @@ var params = {
 };
 router.post('/pay', function(req, res) {
 console.log(req.body.token);
+    console.log(req.body.ccNo);
  params.token=   req.body.token;
     params.ccNo=req.body.ccNo;
     params.expMonth=req.body.expMonth;

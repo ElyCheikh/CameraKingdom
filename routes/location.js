@@ -24,7 +24,7 @@ router.get('/', function(req, res) {
     console.log(ip);
     console.log(net);
 
-    mongodb.connect("mongodb://127.0.0.1:27017/CameraKingdom",function(err,db){
+    mongodb.connect("mongodb://elycheikh:ely4twin1@ds011379.mlab.com:11379/camerakingdom",function(err,db){
         if(err) throw err;
 
         var ips = db.collection("ips");

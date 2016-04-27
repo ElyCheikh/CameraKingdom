@@ -9,7 +9,9 @@ angular.module('NetworkWebApp', [
     $routeProvider.when("/activity", {templateUrl: "partials/activity.html", controller: "ActivityCtrl"});
     $routeProvider.when("/claims", {templateUrl: "partials/claims.html", controller: "ClaimsCtrl"});
     $routeProvider.when("/social", {templateUrl: "partials/social.html", controller: "SocialCtrl"});
-
+  //************Payment form
+  $routeProvider.when("/payment", {templateUrl: "partials/paymentform.html", controller: "paymentCtrl"});
+  //************
   $routeProvider.when("/challenges", {templateUrl: "partials/challenges.html", controller: "IssuesController"});
   $routeProvider.when("/challengesdetails/:_id", {templateUrl: "partials/issue.html", controller: "IssueDetailsController"});
     $routeProvider.when("/messages", {templateUrl: "partials/messages-2.html", controller: "MessagesCtrl"});
