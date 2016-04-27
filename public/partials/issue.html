@@ -1,0 +1,51 @@
+<div id="content-block" class="gallery-block">
+  <div class="head-bg">
+    <div class="head-bg-img"></div>
+    <div class="head-bg-content">
+      <h1>Poll Vote</h1>
+      <a class="be-register btn color-3 size-1 hover-6"><i class="fa fa-event"></i>Create Challenge</a>
+
+    </div>
+  </div>
+  <div class="custom-container gallery-container">
+    <div class="container">
+      <!--		<iframe src="http://the-issues.herokuapp.com/#/details/57175ab10000000300000004" width="1100" height="500"></iframe>
+-->
+
+
+      <div class="sidebar">
+        <ng-include src="'/partials/login-poll.html'"></ng-include>
+        <div><a href="#/challenges">Back to Issues</a></div>
+        <br />
+        <div ng-click="remove()"><button>Delete Issue</button></div>
+      </div>
+
+      <div class="content issue">
+        <h1><span>{{issue.first.name}}</span> VS <span>{{issue.second.name}}</span></h1>
+
+        <div class="info">
+          <div pie-chart first="issue.first.votes" second="issue.second.votes"></div> <h3 class="chart-label">{{issue.first.name}}</h3>
+
+          <div class="castVote" ng-show="auth.loggedIn">
+            <button ng-click="vote(issue.first)">Vote {{issue.first.name}}</button>
+            <button ng-click="vote(issue.second)">Vote {{issue.second.name}}</button>
+          </div>
+        </div>
+
+        <div class="votes">
+          <h2>{{issue.votes.length}} Votes</h2>
+          <table class="votes">
+            <tr><th>User</th><th>Voted</th><th>When</th></tr>
+            <tr class="vote" ng-repeat="vote in issue.votes | orderBy:'-created'">
+              <td>{{vote.username}}</td>
+              <td>{{vote.name}}</td>
+              <td>{{vote.created | ago}}</td>
+            </tr>
+          </table>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -43,6 +43,12 @@
     "twig": "^0.8.8",
     "twilio": "^2.9.1",
     "twit": "*",
-    "youtube-api": "1.4.0"
+    "youtube-api": "1.4.0",
+    "youtube-api": "1.4.0",
+    "fs": "0.0.2",
+    "twit":"*",
+    "multer": "1.1.0",
+    "mongolian": "~0.1.18",
+    "2checkout-node" : "*"
   }
 }

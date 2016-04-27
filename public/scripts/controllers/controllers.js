@@ -734,7 +734,13 @@ app.run(function($rootScope) {
 
 	};
 });
-
+/**
+ * ----------------------------------------------------------------------------------------------------------------
+ * ----------------------------------------------------------------------------------------------------------------
+ * ----------------------------------------------------------------------------------------------------------------
+ * ----------------------------------------------------------------------------------------------------------------
+ * ----------------------------------------------------------------------------------------------------------------
+ */
 
 /**
  * Controls all other Pages
@@ -783,6 +789,9 @@ app.controller('DiscoverCtrl', ['$scope', function($rootScope) {
 app.controller('ChallengesCtrl', ['$scope', function($rootScope) {
 	console.log("ChallengesCtrl Controller reporting for duty.");
 	$rootScope.globalFoo();
+
+
+
 }]);
 app.controller('TweetList', function($scope, $resource, $timeout) {
 
@@ -952,10 +961,16 @@ app.controller('ProfileCtrl', function($rootScope, $scope, $http) {
 	$rootScope.globalFoo();
 	console.log("Profile Controller reporting for duty.");
 	$http.get("http://localhost:3000/account").success(function(data, status) {
+<<<<<<< HEAD
 		$scope.myVar = 'Profile Page';
 		console.log(data);
 		$rootScope.profile = data.account;
 		$rootScope.posts = data.posts;
+=======
+    $scope.myVar = 'Profile Page';
+  	//console.log(data);
+		$scope.profile = data;
+>>>>>>> 67ec5cbb95562ed5f81cae3ff9e22352d967a8c7
 	});
 });
 
@@ -974,6 +989,7 @@ app.controller('email_pass_forgotCtrl', ['$scope', function($scope) {
 app.controller('passConfirmCtrl', function($scope, $routeParams, $http) {
 	console.log("passRecovery pass forgot Controller reporting for duty.");
 	$http.get("http://localhost:3000/gettoken").success(function(data, status) {
+<<<<<<< HEAD
 		$scope.myVar = 'Profile Page';
 		console.log('agular data')
 		console.log(data);
@@ -983,6 +999,17 @@ app.controller('passConfirmCtrl', function($scope, $routeParams, $http) {
 			str = str.substr(1);
 		console.log('new toekn');
 		console.log(str);
+=======
+    $scope.myVar = 'Profile Page';
+    console.log('agular data')
+  	console.log(data);
+  	var str = data ;
+  	str = str.slice(0, -1);
+  	while(str.charAt(0) === '"')
+    str = str.substr(1);
+   console.log('new token');
+   console.log(str);
+>>>>>>> 67ec5cbb95562ed5f81cae3ff9e22352d967a8c7
 		$scope.token = str;
 	});
 });
@@ -1036,6 +1063,7 @@ app.controller('YoutubeCtrl', function($scope, YoutubeFactory) {
 	}
 });
 
+
 app.controller('UploadCtrl', function($scope) {
 
 });
@@ -1080,5 +1108,247 @@ app.controller('followUserCtrl', function($rootScope,$routeParams, $scope, $http
 		console.log(data);
 	});
 $rootScope.globalFoo();
+});
+
+app.controller('MediaCtrl', function($scope,$rootScope, MediaFactory) {
+
+	loadMedia();
+	function loadMedia(){
+		MediaFactory.medias().success(function (response) {
+			//console.log(response);
+			$scope.medias = response;
+			$rootScope.globalFoo();
+		});
+	}
+
+});
+
+/*------------------------------------------------------------------*/
+/*------------------------------------------------------------------*/
+/*------------------------------------------------------------------*/
+
+function IssuesController($scope, Issues, Auth) {
+	$scope.globalFoo();
+	// If you didn't want realtime updates, you would use Issues.query()
+	$scope.issues = Issues.pollList(1000);
+	$scope.auth = Auth;
+
+	$scope.create = function() {
+		issue = {first: {name: $scope.firstOption}, second: {name: $scope.secondOption}};
+		Issues.save(issue, function() {
+			$scope.issues = Issues.query()
+		})
+	}
+}
+
+
+
+
+function IssueDetailsController($scope, Issues, $routeParams, Auth) {
+	$scope.globalFoo();
+	$scope.issueId = $routeParams._id;
+	$scope.auth = Auth;
+
+	// If you didn't want realtime updates, you would use Issues.get({_id:...})
+	$scope.issue = Issues.pollIssue({_id: $routeParams._id}, 1000);
+
+	$scope.vote = function(option) {
+		Issues.vote($scope.issue, option)
+	};
+
+	$scope.remove = function() {
+		Issues.remove({_id: $routeParams._id});
+		window.location = "/"
+	}
+}
+
+
+
+function LoginController($scope, Auth) {
+	$scope.auth = Auth;
+
+	$scope.login = function() {
+		if (!$scope.newUsername) return alert("Please enter a username");
+		Auth.login($scope.newUsername)
+	};
+
+	$scope.logout = function() {
+		Auth.logout();
+	}
+}
+
+
+
+
+
+
+
+
+
+/// FILTERS ///
+app.filter('ago', function() {
+	return function(text) {
+		return moment(text).fromNow()
+	}
+});
+
+
+
+
+
+
+
+
+
+
+
+//// SERVICES ////
+app.factory('Issues', function($http, $resource, Auth) {
+	var Issues = $resource("/issues/:_id");
+
+	Issues.vote = function(issue, vote, cb) {
+		cb = cb || function() {};
+		vote.username = Auth.username;
+		$http.post("/issues/" + issue._id + "/votes", vote).success(cb);
+	};
+
+	// polls the server for updates, and merges results into these
+	Issues.pollList = function(interval) {
+		var issues = Issues.query();
+
+		// for now, only support updates and adds
+		function fetch() {
+			newIssues = Issues.query(function() {
+				newIssues.forEach(function(newIssue) {
+					var matches = _.find(issues, function(issue) {
+						return (issue._id == newIssue._id)
+					});
+
+
+					if (matches)
+						_.extend(matches, newIssue);
+
+					else
+						issues.unshift(newIssue)
+				})
+			})
+		}
+
+		interval = setInterval(fetch, interval);
+
+		return issues
+	};
+
+	Issues.pollIssue = function(matching, interval) {
+		var issue = Issues.get(matching);
+
+		function fetch() {
+			newIssue = Issues.get(matching, function() {
+				_.extend(issue, newIssue)
+			})
+		}
+
+		interval = setInterval(fetch, interval);
+
+		return issue
+	};
+
+
+	return Issues
+});
+
+app.factory('Auth', function() {
+	var Auth = {
+		username: localStorage.username,
+		login: function(username) {
+			localStorage.username = username;
+			this.username = username;
+			this.loggedIn = true
+		},
+		logout: function() {
+			localStorage.removeItem('username');
+			delete this.username;
+			this.loggedIn = false;
+		}
+	};
+	Auth.loggedIn = !!Auth.username;
+	return Auth;
+});
+
+
+
+
+//// DIRECTIVES ////
+app.directive('coloredBar', function() {
+	return {
+		link: function(scope, element, attrs) {
+			var INCREMENTAL_WIDTH = 20;
+			var MIN_WIDTH = 30;
+
+			// have a min width?
+
+			scope.$watch(attrs.total, function(total) {
+				width = Math.max(total * INCREMENTAL_WIDTH, MIN_WIDTH);
+				element.css('width', width + 'px');
+			});
+
+			scope.$watch(attrs.text, function(text) {
+				element.text(text);
+			})
+		}
+	}
+});
+
+
+app.directive('pieChart', function() {
+	return {
+		link: function(scope, element, attrs) {
+			var firstTotal = null;
+			var secondTotal = null;
+
+			var original = element.clone();
+
+			scope.$watch(attrs.first, function(first) {
+				firstTotal = first;
+				render()
+			});
+
+			scope.$watch(attrs.second, function(second) {
+				secondTotal = second;
+				render();
+			});
+
+			function render() {
+				if (!(firstTotal > -1 && secondTotal > -1)) return;
+
+				var total = firstTotal + secondTotal;
+				var percent = 50;
+
+				if (total > 0)
+					percent = Math.floor(firstTotal * 100 / total);
+
+				element.data('percent', percent);
+
+				if (element.data('easyPieChart')) {
+					element.data('easyPieChart').update(percent)
+				}
+
+				else {
+					element.html("<span class='text'></span>");
+					element.easyPieChart({
+						barColor: "#3A3",
+						trackColor: "#CCC",
+						scaleColor: false,
+						lineWidth: 30,
+						lineCap: "butt",
+						size: 150,
+						animate: 500
+					})
+				}
+
+				element.find('.text').text(firstTotal + " / " + total);
+			}
+		}
+	}
 });
 

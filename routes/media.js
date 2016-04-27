@@ -14,7 +14,7 @@ var fs = require('fs');
 var randtoken = require('rand-token');
 var token = randtoken.generate(32);
 
-router.get('/', function(req, res, next) {
+router.get('/kanetMedia', function(req, res, next) {
 	console.log('passport')
 	console.log(req.session.passport);
 	res.render('media.twig', {
@@ -81,10 +81,37 @@ router.post('/', type, function(req, res, next) {
 		}
 	});*/
 
-
-
 });
 
+
+var Media = require('../models/media.js');
+
+router.get('/', function(req, res, next) {
+    Media.find(function(err, list) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log(list);
+            res.json(list);
+        }
+
+    });
+});
+
+router.post('/upload', function (req, res, next) {
+    new Media({
+        titre: req.body.titre,
+        nomfichier: req.body.filename
+    })
+        .save(function(err) {
+            if(err){
+                console.log(err);
+            }else{
+                console.log('Saved Succcesfully');
+                res.redirect('/#/home')
+            }
+        });
+});
 
 
 module.exports = router;
