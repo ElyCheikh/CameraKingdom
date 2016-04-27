@@ -44,7 +44,11 @@ var locateMe = function(){
     var map_element= $('#map');
     if (navigator.geolocation) {
         var position= navigator.geolocation.getCurrentPosition(loadMap);
-    } else {
+    var latitude=position.coords.latitude;
+    var longitude=position.coords.longitude;
+//console.log(latitude);
+//console.log(longitude);
+  } else {
         map_element.innerHTML = "Geolocation is not supported by this browser.";
     }
 };

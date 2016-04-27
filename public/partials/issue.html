@@ -17,18 +17,19 @@
         <ng-include src="'/partials/login-poll.html'"></ng-include>
         <div><a href="#/challenges">Back to Issues</a></div>
         <br />
-        <div ng-click="remove()"><button>Delete Issue</button></div>
+        <div class="btn-login btn color-1 size-2 hover-2" ng-click="remove()"><button>Delete Issue</button></div>
       </div>
 
       <div class="content issue">
-        <h1><span>{{issue.first.name}}</span> VS <span>{{issue.second.name}}</span></h1>
+
+        <h2><span>{{issue.first.name}}</span> VS <span>{{issue.second.name}}</span></h2>
 
         <div class="info">
           <div pie-chart first="issue.first.votes" second="issue.second.votes"></div> <h3 class="chart-label">{{issue.first.name}}</h3>
 
           <div class="castVote" ng-show="auth.loggedIn">
-            <button ng-click="vote(issue.first)">Vote {{issue.first.name}}</button>
-            <button ng-click="vote(issue.second)">Vote {{issue.second.name}}</button>
+            <button class="btn-login btn color-1 size-2 hover-2" ng-click="vote(issue.first)">Vote {{issue.first.name}}</button>
+            <button class="btn-login btn color-1 size-2 hover-2" ng-click="vote(issue.second)">Vote {{issue.second.name}}</button>
           </div>
         </div>
 

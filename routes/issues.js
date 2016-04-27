@@ -1,5 +1,6 @@
 var express = require('express');
  var app = express.Router();
+//var Issue = require('../models/issue.js');
 var mongolian = require('mongolian');
 var MONGO_DB = process.env.MONGOHQ_URL || 'mongodb://localhost:27017/CameraKingdom';
 //var MONGO_DB = process.env.MONGOHQ_URL || 'mongodb://elycheikh:ely4twin1@ds011379.mlab.com:11379/camerakingdom';
@@ -68,4 +69,6 @@ app.post("/login/:username", function(req, res) {
 app.get("/login", function(req, res) {
   res.send(req.session.username);
 });
+
+
 module.exports = app;
