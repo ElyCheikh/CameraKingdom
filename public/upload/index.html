@@ -30,8 +30,9 @@
 	<center>
 		<h1>File Upload</h1>
         <form  ng-controller="MyCtrl as up" name="up.upload_form">
-                Single Image with validations
-            <input 
+                Post Title :
+			<input type="text" name="filename" ng-model="up.filename">
+            <input
                 type="file" 
                 ngf-select 
                 ng-model="up.file" 

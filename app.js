@@ -29,6 +29,7 @@ var app = express();
 var multer = require('multer');
 var session = require('express-session');
 var contact = require('./routes/contact');
+var media = require('./routes/media');
 //----------------------------------------
 // added by amine for test
 /*
@@ -106,12 +107,14 @@ mongoose.connect('mongodb://elycheikh:ely4twin1@ds011379.mlab.com:11379/cameraki
 
 
 // upload code //sofien
+var uploadedfilename;
 var storage = multer.diskStorage({ //multers disk storage settings
   destination: function (req, file, cb) {
     cb(null, './uploads/');
   },
   filename: function (req, file, cb) {
     var datetimestamp = Date.now();
+    uploadedfilename= file.fieldname + '-' + datetimestamp + '.' + file.originalname.split('.')[file.originalname.split('.').length -1];
     cb(null, file.fieldname + '-' + datetimestamp + '.' + file.originalname.split('.')[file.originalname.split('.').length -1]);
   }
 });
@@ -127,7 +130,7 @@ app.post('/upload', function(req, res) {
       res.json({error_code:1,err_desc:err});
       return;
     }
-    res.json({error_code:0,err_desc:null});
+    res.json({error_code:0,err_desc:null,filename:uploadedfilename});
   });
 });
 
@@ -150,6 +153,7 @@ app.use('/instagram', instagram);
 app.use('/payment', payment);
 app.use('/youtube', youtube);
 app.use('/contact', contact);
+app.use('/media', media);
 ////////////////////////////////////////////////////////////
 app.get('/account', ensureAuthenticated, function(req, res) {
   console.log('cooooooooooooooooool');
