@@ -1,0 +1,40 @@
+
+
+<div id="content-block">
+    <div class="container be-detail-container">
+        <div class="row">
+
+            <div class="col-xs-12 col-sm-7">
+                <div class="be-large-post">
+                    <div class="info-block style-2">
+                        <div class="be-large-post-align">
+                            <h3 class="info-block-label">Get a premium account</h3>
+                        </div>
+                    </div>
+                    <div class="be-large-post-align">
+                        <form id="myCCForm" ng-controller="paymentCtrl" method="post" onsubmit="return preventSubmitFunction()" >
+                            <input name="token" type="hidden" value="" ng-model="token" />
+                            <div class="form-group">
+                                <div class="form-label">Card Number</div>
+                                <input class="form-input" id="ccNo" type="text" size="16" value="4000000000000002" placeholder="Enter your card number" ng-model="ccNo" required>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-label">Expiration Date (MM/YYYY)</div>
+                                <input class="form-input" id="expMonth" type="text" size="2" value="02" placeholder="Month" ng-model="expMonth" required>
+                                <input class="form-input" id="expYear" type="text" size="4" value="2019" placeholder="Year" ng-model="expYear" required>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-label">CVC</div>
+                                <input class="form-input" id="cvv" type="text" size="3" value="159" placeholder="Enter your CVC" ng-model="cvv" required>
+                            </div>
+                            <button class="btn btn-right color-4 size-2 hover-7" type="reset">cancel</button>
+                            <button class="btn btn-right color-1 size-2 hover-1" type="submit" ng-click="submit()" value="Submit Payment">Submit Payment</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
