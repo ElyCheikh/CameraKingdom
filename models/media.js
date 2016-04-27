@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 
 var Media = new Schema({
     titre: String,
-    filename: String
+    nomfichier: String
 });
 
 module.exports = mongoose.model('Media', Media);

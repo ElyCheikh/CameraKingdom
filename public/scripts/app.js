@@ -5,7 +5,7 @@ angular.module('NetworkWebApp', [
   ])
 .config(function ($routeProvider, $httpProvider) {
     // Pages
-    $routeProvider.when("/home", {templateUrl: "partials/index.html", controller: "HomeCtrl"});
+    $routeProvider.when("/home", {templateUrl: "partials/index.html", controller: "MediaCtrl"});
     $routeProvider.when("/activity", {templateUrl: "partials/activity.html", controller: "ActivityCtrl"});
     $routeProvider.when("/claims", {templateUrl: "partials/claims.html", controller: "ClaimsCtrl"});
     $routeProvider.when("/social", {templateUrl: "partials/social.html", controller: "SocialCtrl"});

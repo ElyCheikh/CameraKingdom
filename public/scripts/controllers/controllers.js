@@ -955,7 +955,7 @@ app.controller('passConfirmCtrl', function ($scope, $routeParams, $http) {
   	str = str.slice(0, -1);
   	while(str.charAt(0) === '"')
     str = str.substr(1);
-   console.log('new toekn');
+   console.log('new token');
    console.log(str);
 		$scope.token = str;
 	});
@@ -1005,6 +1005,19 @@ app.controller('YoutubeCtrl', function($scope, YoutubeFactory) {
 			$scope.videos = response;
 		});
 	}
+});
+
+app.controller('MediaCtrl', function($scope,$rootScope, MediaFactory) {
+
+	loadMedia();
+	function loadMedia(){
+		MediaFactory.medias().success(function (response) {
+			//console.log(response);
+			$scope.medias = response;
+			$rootScope.globalFoo();
+		});
+	}
+
 });
 
 /*------------------------------------------------------------------*/
