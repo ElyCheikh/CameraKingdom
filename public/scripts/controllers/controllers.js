@@ -832,7 +832,7 @@ app.controller('TweetList', function($scope, $resource, $timeout) {
 
 		var params = {
 			action: 'user_timeline',
-			user: 'photo'
+			user: 'photoblggr'
 		};
 
 		if ($scope.maxId) {
@@ -962,8 +962,7 @@ app.controller('ProfileCtrl', function($rootScope, $scope, $http) {
 	console.log("Profile Controller reporting for duty.");
 	$http.get("http://localhost:3000/account").success(function(data, status) {
  		$scope.myVar = 'Profile Page';
-		console.log(data);
-		$rootScope.profile = data.account;
+ 		$rootScope.profile = data.account;
 		$rootScope.posts = data.posts;
      $scope.myVar = 'Profile Page';
   	//console.log(data);
