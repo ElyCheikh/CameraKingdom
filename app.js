@@ -16,12 +16,8 @@ var GithubStrategy = require('passport-github2').Strategy;
 var GoogleStrategy = require('passport-google-oauth2').Strategy;
 var InstagramStrategy = require('passport-instagram').Strategy;
 var Account = require('./models/account');
-var Post = require('./models/post');
-var Post = require('./models/post');
 var config = require('./oauth.js');
 var routes = require('./routes/index');
-var media = require('./routes/media');
-var follow = require('./routes/follow');
 var instagram = require('./routes/instagram');
 var payment = require('./routes/payment');
 var youtube = require('./routes/youtube');
@@ -29,28 +25,20 @@ var users = require('./routes/users');
 var tweets = require('./routes/tweets');
 var issues = require('./routes/issues');
 var ig = require('instagram-node').instagram();
+var app = express();
 var multer = require('multer');
 var session = require('express-session');
 var contact = require('./routes/contact');
-
-var https = require('https');
-var fs = require('fs');
-/*var opts = {key: fs.readFileSync('key.pem'),
-  cert: fs.readFileSync('cert.pem')};*/
-var app = express();
-
-app.use(function(req, res, next) {
-
 var media = require('./routes/media');
 //----------------------------------------
 // added by amine for test
 /*
-var mongolian = require('mongolian');
-var MONGO_DB = process.env.MONGOHQ_URL || 'mongodb://localhost/camerakingdom';
-var db = new mongolian(MONGO_DB);
-var ObjectId = mongolian.ObjectId;
-ObjectId.prototype.toJSON = ObjectId.prototype.toString;
-*/
+ var mongolian = require('mongolian');
+ var MONGO_DB = process.env.MONGOHQ_URL || 'mongodb://localhost/camerakingdom';
+ var db = new mongolian(MONGO_DB);
+ var ObjectId = mongolian.ObjectId;
+ ObjectId.prototype.toJSON = ObjectId.prototype.toString;
+ */
 //----------------------------------------
 app.use(function (req, res, next) {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -84,10 +72,10 @@ app.use(session({
 }));
 
 /*app.use(require('express-session')({
-  secret: 'CameraKingdom',
-  resave: false,
-  saveUninitialized: false
-}));*/
+ secret: 'CameraKingdom',
+ resave: false,
+ saveUninitialized: false
+ }));*/
 
 app.use(flash());
 
@@ -114,7 +102,6 @@ passport.deserializeUser(function(id, done) {
   });
 });
 
-
 mongoose.connect('mongodb://elycheikh:ely4twin1@ds011379.mlab.com:11379/camerakingdom');
 //mongoose.connect('mongodb://localhost:27017/CameraKingdom');
 
@@ -123,12 +110,12 @@ mongoose.connect('mongodb://elycheikh:ely4twin1@ds011379.mlab.com:11379/cameraki
 var uploadedfilename;
 var storage = multer.diskStorage({ //multers disk storage settings
   destination: function (req, file, cb) {
-    cb(null, './public/uploads/');
+    cb(null, './uploads/');
   },
   filename: function (req, file, cb) {
     var datetimestamp = Date.now();
-    uploadedfilename= file.fieldname + datetimestamp + '.' + file.originalname.split('.')[file.originalname.split('.').length -1];
-    cb(null, file.fieldname + datetimestamp + '.' + file.originalname.split('.')[file.originalname.split('.').length -1]);
+    uploadedfilename= file.fieldname + '-' + datetimestamp + '.' + file.originalname.split('.')[file.originalname.split('.').length -1];
+    cb(null, file.fieldname + '-' + datetimestamp + '.' + file.originalname.split('.')[file.originalname.split('.').length -1]);
   }
 });
 
@@ -167,87 +154,64 @@ app.use('/payment', payment);
 app.use('/youtube', youtube);
 app.use('/contact', contact);
 app.use('/media', media);
-app.use('/follow', follow);
-
-
 ////////////////////////////////////////////////////////////
-
 app.get('/account', ensureAuthenticated, function(req, res) {
   console.log('cooooooooooooooooool');
   Account.findById(req.session.passport.user,
-    function(err, account) {
-      if (err) {
-        console.log(err); // handle errors
-        console.log('lllllllllllllllllllllllllllllllllllllllllll')
-      } else {
-        console.log('user..  ' + account.fullName + '' + account.username);
-        console.log(' xxxxxxxx   ' + req.session.passport.user);
-        //////  node  /////
-        /*res.render('account.twig', {
-         account: account
-         });*/
-        //////////////////node///////
-        Post.find({
-          userId: req.session.passport.user
-        }, function (err, posts) {
-          
-          if(err){
-              console.log('error retrieving user posts');
-              console.log(err);
-            }else{
-              console.log('succes retrieving user posts');
-              console.log(posts);
-              var user = {};
-              user.account = account;
-              user.posts = posts;
-              res.json(user);
-            }
-        });
-      }
-});
-});
+      function(err, account) {
+        if (err) {
+          console.log(err); // handle errors
+          console.log('lllllllllllllllllllllllllllllllllllllllllll')
+        } else {
+          console.log('user..  ' + account.fullName +''+ account.username);
+          console.log(' xxxxxxxx   '+req.session.passport.user);
+          //////  node  /////
+          /*res.render('account.twig', {
+           account: account
+           });*/
+          //////////////////node///////
 
+          res.json(account); //// angular
+
+        }
+      });
+});
 ///////insta//////
 
 
 
 ///////////////////////  Facebook /////////////////////////////////////
 app.get('/auth/facebook',
-  passport.authenticate('facebook'),
-  function(req, res) {});
+    passport.authenticate('facebook'),
+    function(req, res) {});
 app.get('/auth/facebook/callback',
-  passport.authenticate('facebook', {
-    failureRedirect: '/'
-  }),
-  function(req, res) {
-    res.redirect('/#/myportfolio'); //     /#/profile  /account
-  });
+    passport.authenticate('facebook', {
+      failureRedirect: '/'
+    }),
+    function(req, res) {
+      res.redirect('/#/myportfolio'); //     /#/profile  /account
+    });
 //////////////////////////   GitHub ///////////////////////////
 app.get('/auth/github',
-  passport.authenticate('github'),
-  function(req, res) {});
+    passport.authenticate('github'),
+    function(req, res){});
 app.get('/auth/github/callback',
-  passport.authenticate('github', {
-    failureRedirect: '/'
-  }),
-  function(req, res) {
-    res.redirect('/#/myportfolio'); //         /account   /#/profile
-  });
+    passport.authenticate('github', { failureRedirect: '/' }),
+    function(req, res) {
+      res.redirect('/#/myportfolio'); //         /account   /#/profile
+    });
 ////////////////////////   Google  ////////////////////////////
 app.get('/auth/google',
-  passport.authenticate('google', {
-    scope: [
-      'https://www.googleapis.com/auth/plus.login',
-      'https://www.googleapis.com/auth/plus.profile.emails.read'
-    ]
-  }));
+    passport.authenticate('google', { scope: [
+          'https://www.googleapis.com/auth/plus.login',
+          'https://www.googleapis.com/auth/plus.profile.emails.read'
+        ] }
+    ));
 app.get('/auth/google/callback',
-  passport.authenticate('google', {
-    failureRedirect: '/'
-  }),
-  function(req, res) {
-    res.redirect('/#/myportfolio');
-  });
+    passport.authenticate('google', { failureRedirect: '/' }),
+    function(req, res) {
+      res.redirect('/#/myportfolio');
+    });
 ///////////////////////////////////////////////////////////
 function ensureAuthenticated(req, res, next) {
   console.log('authentification');
