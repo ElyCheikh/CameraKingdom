@@ -1,0 +1,12 @@
+{% extends 'layout.twig' %}
+{% block content %}
+    {{ arg }}<br />
+
+    <form action="/media", method="POST" enctype="multipart/form-data">
+    	
+    	<input type="text" name="titre"></input><br />
+    	<input type="textarea" name="desc"></input><br />
+    	<input type="file" name="media" ></input><br />
+    <input type="submit" name="Ajouter"></input>
+</form>
+{% endblock %}

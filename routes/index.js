@@ -73,8 +73,8 @@ router.post('/login', passport.authenticate('local', {
       console.log(doc.email_verified);
       res.redirect('/#/verify');
     } else(doc.email_verified == 'OK')
-    console.log(doc.email_verified);
-    res.redirect('/#/myportfolio');
+      console.log(doc.email_verified);
+      res.redirect('/#/myportfolio');
   });
 });
 

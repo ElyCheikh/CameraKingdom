@@ -76,6 +76,18 @@ angular.module('NetworkWebApp', [
       templateUrl: 'partials/contacts.html',
       controller: 'contactCtrl'
     });
+    $routeProvider.when('/uploadMedia',{
+      templateUrl: 'partials/media.html',
+      controller: 'UploadCtrl'
+    });
+    $routeProvider.when('/show-profile',{
+      templateUrl: 'partials/myportfolio-information.html',
+      controller: 'show-profileCtrl'
+    });
+    $routeProvider.when('/followUser',{
+      templateUrl: 'partials/myportfolio.html',
+      controller: 'followUserCtrl'
+    });
 
 
 
