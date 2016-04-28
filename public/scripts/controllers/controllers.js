@@ -961,17 +961,14 @@ app.controller('ProfileCtrl', function($rootScope, $scope, $http) {
 	$rootScope.globalFoo();
 	console.log("Profile Controller reporting for duty.");
 	$http.get("http://localhost:3000/account").success(function(data, status) {
-<<<<<<< HEAD
-		$scope.myVar = 'Profile Page';
+ 		$scope.myVar = 'Profile Page';
 		console.log(data);
 		$rootScope.profile = data.account;
 		$rootScope.posts = data.posts;
-=======
-    $scope.myVar = 'Profile Page';
+     $scope.myVar = 'Profile Page';
   	//console.log(data);
 		$scope.profile = data;
->>>>>>> 67ec5cbb95562ed5f81cae3ff9e22352d967a8c7
-	});
+ 	});
 });
 
 
@@ -989,8 +986,7 @@ app.controller('email_pass_forgotCtrl', ['$scope', function($scope) {
 app.controller('passConfirmCtrl', function($scope, $routeParams, $http) {
 	console.log("passRecovery pass forgot Controller reporting for duty.");
 	$http.get("http://localhost:3000/gettoken").success(function(data, status) {
-<<<<<<< HEAD
-		$scope.myVar = 'Profile Page';
+ 		$scope.myVar = 'Profile Page';
 		console.log('agular data')
 		console.log(data);
 		var str = data;
@@ -999,8 +995,7 @@ app.controller('passConfirmCtrl', function($scope, $routeParams, $http) {
 			str = str.substr(1);
 		console.log('new toekn');
 		console.log(str);
-=======
-    $scope.myVar = 'Profile Page';
+     $scope.myVar = 'Profile Page';
     console.log('agular data')
   	console.log(data);
   	var str = data ;
@@ -1009,8 +1004,7 @@ app.controller('passConfirmCtrl', function($scope, $routeParams, $http) {
     str = str.substr(1);
    console.log('new token');
    console.log(str);
->>>>>>> 67ec5cbb95562ed5f81cae3ff9e22352d967a8c7
-		$scope.token = str;
+ 		$scope.token = str;
 	});
 });
 
