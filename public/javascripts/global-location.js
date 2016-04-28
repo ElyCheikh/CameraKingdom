@@ -1,6 +1,8 @@
 //Calling the locateme function when the document finishes loading
 $(document).ready(function() {
     locateMe();
+
+
     /*		var geoip = new GeoIP();
      geoip.locate(function(ip,location){
 
@@ -51,6 +53,7 @@ var locateMe = function(){
   } else {
         map_element.innerHTML = "Geolocation is not supported by this browser.";
     }
+
 };
 
 //Lets load the mop using the position
