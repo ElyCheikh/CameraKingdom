@@ -29,7 +29,7 @@ var params = {
 };
 router.post('/pay', function(req, res) {
 console.log(req.body.token);
-    console.log(req.body.ccNo);
+console.log("cc="+req.body.ccNo);
  params.token=   req.body.token;
     params.ccNo=req.body.ccNo;
     params.expMonth=req.body.expMonth;
@@ -39,7 +39,8 @@ console.log(req.body.token);
         if (error) {
             console.log(error.message);
         } else {
-            res.json(JSON.stringify(data));
+            //res.json(JSON.stringify(data));
+            res.json("Payment done with success!");
         }
     });
 });

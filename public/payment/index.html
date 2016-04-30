@@ -39,21 +39,21 @@
     <div>
         <label>
             <span>Card Number</span>
-            <input id="ccNo" type="text" value="4000000000000002" autocomplete="off" required />
+            <input id="ccNo" name="ccNo" type="text" value="4000000000000002" autocomplete="off" required />
         </label>
     </div>
     <div>
         <label>
             <span>Expiration Date (MM/YYYY)</span>
-            <input id="expMonth" type="text" size="2" value="02" required />
+            <input id="expMonth" name="expMonth" type="text" size="2" value="02" required />
         </label>
         <span> / </span>
-        <input id="expYear" type="text" size="4" value="2019" required />
+        <input id="expYear" name="expYear" type="text" size="4" value="2019" required />
     </div>
     <div>
         <label>
             <span>CVC</span>
-            <input id="cvv" type="text" value="159" autocomplete="off" required />
+            <input id="cvv" name="cvv" type="text" value="159" autocomplete="off" required />
         </label>
     </div>
     <input type="submit" value="Submit Payment" />
