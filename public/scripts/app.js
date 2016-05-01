@@ -42,7 +42,7 @@ app.config(function ($routeProvider, $httpProvider) {
     $routeProvider.when("/claims", {templateUrl: "partials/claims.html", controller: "ClaimsCtrl"});
     $routeProvider.when("/social", {templateUrl: "partials/social.html", controller: "SocialCtrl"});
   //************Payment form
-  $routeProvider.when("/payment", {templateUrl: "partials/paymentform.html", controller: "paymentCtrl"});
+  $routeProvider.when("/payment", {templateUrl: "http://localhost:3000/payment/", controller: "paymentCtrl"});
   //************
   $routeProvider.when("/challenges", {templateUrl: "partials/challenges.html", controller: "IssuesController"});
   $routeProvider.when("/challengesdetails/:_id", {templateUrl: "partials/issue.html", controller: "IssueDetailsController"});
