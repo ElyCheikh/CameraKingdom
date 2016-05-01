@@ -40,7 +40,8 @@ console.log("cc="+req.body.ccNo);
             console.log(error.message);
         } else {
             //res.json(JSON.stringify(data));
-            res.json("Payment done with success!");
+            //res.json("Payment done with success!");
+            res.render('payment/paymentSuccess.twig', { param: params.ccNo });
         }
     });
 });
