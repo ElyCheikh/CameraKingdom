@@ -51,7 +51,8 @@ app.config(function ($routeProvider, $httpProvider) {
     $routeProvider.when("/myportfolio", {templateUrl: "partials/myportfolio.html", controller:"MyportfolioCtrl"});
     $routeProvider.when("/myportfolio-information", {templateUrl: "partials/myportfolio-information.html", controller:"MyportfolioInfoCtrl"});
 
-    $routeProvider.when("/addwork", {templateUrl: "partials/addworkk.html", controller: "AddworkCtrl"});
+  $routeProvider.when("/details", {templateUrl: "partials/details.html", controller: "DetailsCtrl"});
+  $routeProvider.when("/addwork", {templateUrl: "partials/addworkk.html", controller: "AddworkCtrl"});
     $routeProvider.when("/portfolio", {templateUrl: "partials/portfolio.html", controller: "PortfolioCtrl"});
     $routeProvider.when("/discover", {templateUrl: "partials/discover.html", controller: "DiscoverCtrl"});
     // discover

@@ -1,4 +1,4 @@
-var app = angular.module('NetworkWebApp.controllers', ['ngResource', 'ngSanitize']);
+var app = angular.module('NetworkWebApp.controllers', ['ngResource', 'ngSanitize','geolocation']);
 
 app.run(function($rootScope) {
 	$rootScope.globalFoo = function() {
@@ -904,10 +904,35 @@ app.controller('PortfolioCtrl', ['$scope', function($rootScope) {
 	$rootScope.globalFoo();
 }]);
 /**
+ * Controls the details
+ */
+app.controller('DetailsCtrl', ['$scope', function($rootScope) {
+	$rootScope.globalFoo();
+}]);
+/**
  * Controls the People
  */
-app.controller('PeopleCtrl', ['$scope', function($rootScope) {
+app.controller('PeopleCtrl', ['$scope','geolocation', function($rootScope,geolocation) {
 	$rootScope.globalFoo();
+	$rootScope.coords = geolocation.getLocation().then(function(data){
+		console.log('lat:'+data.coords.latitude);
+		console.log('long:'+data.coords.longitude);
+
+		return {lat:data.coords.latitude, long:data.coords.longitude};
+	});
+
+	if (navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition(function(position){
+
+			$rootScope.$apply(function(){
+
+
+
+				$rootScope.position = position;
+				console.log($rootScope.position);
+			});
+		});
+	}
 }]);
 /**
  * Controls the Gallerie
@@ -1117,7 +1142,7 @@ app.controller('MediaCtrl', function($scope,$rootScope, MediaFactory) {
 });
 
 /*------------------------------------------------------------------*/
-/*------------------------------------------------------------------*/
+/*-----------------------Challenge Work Controllers-----------------*/
 /*------------------------------------------------------------------*/
 
 function IssuesController($scope, Issues, Auth) {
