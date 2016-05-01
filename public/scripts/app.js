@@ -1,9 +1,37 @@
-angular.module('NetworkWebApp', [
+var app = angular.module('NetworkWebApp', [
   'NetworkWebApp.services',
   'NetworkWebApp.controllers',
-  'ngRoute'
-  ])
-.config(function ($routeProvider, $httpProvider) {
+  'ngRoute',
+  'pascalprecht.translate'
+  ]);
+//angular-translate by rihab
+app.config(function ($translateProvider) {
+  $translateProvider.translations('en', {
+    HOME: 'Home',
+    DISCOVER: 'Discover',
+    CHALLENGES: 'Challenges',
+    MYPORTFOLIO: 'My portfolio',
+    CHATROOM: 'Chatroom',
+    BUTTON_LANG_EN: 'en',
+    BUTTON_LANG_FR: 'fr'
+  });
+  $translateProvider.translations('fr', {
+    HOME: 'Accueil',
+    DISCOVER: 'Découvrir',
+    CHALLENGES: 'Compétitions',
+    MYPORTFOLIO: 'Mon portfolio',
+    CHATROOM: 'Tchat',
+    BUTTON_LANG_EN: 'en',
+    BUTTON_LANG_FR: 'fr'
+  });
+  $translateProvider.preferredLanguage('en');
+});
+app.controller('translateCtrl', function ($scope, $translate) {
+  $scope.changeLanguage = function (key) {
+    $translate.use(key);
+  };
+});
+app.config(function ($routeProvider, $httpProvider) {
     // Pages
     $routeProvider.when("/home", {templateUrl: "partials/index.html", controller: "MediaCtrl"});
     $routeProvider.when("/activity", {templateUrl: "partials/activity.html", controller: "ActivityCtrl"});

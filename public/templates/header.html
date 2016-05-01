@@ -10,6 +10,7 @@
 						<img class="logo-c be_logo" src="img/logo-red.png" alt="logo4">
 					</a>
 				</div>
+
 				<div ng-controller="ProfileCtrl">
 		 <!--   <div ng-if="equals({}, profile._id)"> -->
 				<div class="login-header-block">
@@ -235,9 +236,12 @@
 				<!--  -->
 				<div class="header-menu-block">
 					<button class="cmn-toggle-switch cmn-toggle-switch__htx"><span></span></button>
-					<ul class="header-menu" id="one">
-						<li><a href="#/home">Home</a></li>
-						<li><a href="#/discover/explore">Discover</a>
+					<ul class="header-menu" id="one" ng-controller="translateCtrl">
+						<li><a href="#" ng-click="changeLanguage('en')">{{'BUTTON_LANG_EN' | translate}}</a>
+						|
+						<li><a href="#" ng-click="changeLanguage('fr')">{{'BUTTON_LANG_FR' | translate}}</a></li>
+						<li><a href="#/home">{{'HOME' | translate}}</a></li>
+						<li><a href="#/discover/explore">{{'DISCOVER' | translate}}</a>
 							<ul>
 								<li><a href="#/discover/explore">Explore</a></li>
 								<li><a href="#/discover/people">People</a></li>
@@ -246,9 +250,9 @@
 								<li><a href="#/social">Tweets</a></li>
 							</ul>
 						</li>
-						<li><a href="#/challenges">Challenges</a></li>
-						<li><a href="#/myportfolio">My Portfolio</a></li>
-						<li><a href="http://localhost:3001/" target="_blank">ChatRoom</a></li>
+						<li><a href="#/challenges">{{'CHALLENGES' | translate}}</a></li>
+						<li><a href="#/myportfolio">{{'MYPORTFOLIO' | translate}}</a></li>
+						<li><a href="http://localhost:3001/" target="_blank">{{'CHATROOM' | translate}}</a></li>
  						<li id="ad-work-li"><a id="add-work-btn" class="btn color-1" href="http://localhost:3000/upload/">Add Work </a></li>
 					</ul>
 				</div>
