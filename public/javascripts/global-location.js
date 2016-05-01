@@ -3,9 +3,11 @@ $(document).ready(function() {
     locateMe();
 
 
-    /*		var geoip = new GeoIP();
+   		var geoip = new GeoIP();
      geoip.locate(function(ip,location){
-
+      console.log(location.country_name);
+     });
+         /*
      var details = $("#details")
      var html = "<h1>IP: "+ip+"</h1>";
      if(location)
@@ -14,7 +16,7 @@ $(document).ready(function() {
      details.innerHTML = html;
      })
      */});
-/*
+
  function GeoIP(forcedIP) {
  var locateUrl = "http://geoip.poeticoding.com/locate";
 
@@ -40,7 +42,7 @@ $(document).ready(function() {
  xhr.send();
  }
  }
- */
+
 //Function to locate the user
 var locateMe = function(){
     var map_element= $('#map');
