@@ -12,6 +12,8 @@ app.config(function ($translateProvider) {
     CHALLENGES: 'Challenges',
     MYPORTFOLIO: 'My portfolio',
     CHATROOM: 'Chatroom',
+    ADDWORK: 'Add work',
+    PREMIUM: 'Premium account',
     BUTTON_LANG_EN: 'en',
     BUTTON_LANG_FR: 'fr'
   });
@@ -21,6 +23,8 @@ app.config(function ($translateProvider) {
     CHALLENGES: 'Compétitions',
     MYPORTFOLIO: 'Mon portfolio',
     CHATROOM: 'Tchat',
+    ADDWORK: 'Publier',
+    PREMIUM: 'Compte Premium',
     BUTTON_LANG_EN: 'en',
     BUTTON_LANG_FR: 'fr'
   });
