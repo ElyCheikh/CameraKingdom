@@ -75,10 +75,14 @@
 
     // Called when token creation fails.
     var errorCallback = function(data) {
+        var myForm = document.getElementById('myCCForm');
         // Retry the token request if ajax call fails
         if (data.errorCode === 200) {
             // This error code indicates that the ajax call failed. We recommend that you retry the token request.
-        } else {
+        }else if (myForm.ccNo.value != '4000000000000002'){
+            document.location.href="errorCardNumber.html"
+        }
+        else {
             alert(data.errorMsg);
         }
     };
