@@ -37,11 +37,12 @@ console.log("cc="+req.body.ccNo);
     params.cvv=req.body.cvv;
     tco.checkout.authorize(params, function (error, data) {
         if (error) {
+            res.render('payment/errorCardNumber.twig', { param: error.message });
             console.log(error.message);
         } else {
-            //res.json(JSON.stringify(data));
+           //res.json(data);
             //res.json("Payment done with success!");
-            res.render('payment/paymentSuccess.twig', { param: params.ccNo });
+           res.render('payment/paymentSuccess.twig', { param: data });
         }
     });
 });

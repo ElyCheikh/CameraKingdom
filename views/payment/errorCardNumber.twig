@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta-Information -->
+    <title>Camera Kingdom</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="Camera Kingdom.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="style/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="style/icon.css">
+    <link rel="stylesheet" href="style/loader.css">
+    <link rel="stylesheet" href="style/idangerous.swiper.css">
+    <link rel="stylesheet" href="style/jquery-ui.css">
+
+    <link rel="stylesheet" href="style/stylesheet.css">
+    <link rel='stylesheet' href='/stylesheets/TweetList.css' />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+</head>
+<body>
+<header>
+
+    <div   class="container-fluid custom-container">
+        <div class="row no_row row-header">
+            <div class="brand-be">
+                <a href="/">
+                    <img class="logo-c active be_logo"  src="img/logo.png" alt="logo">
+                    <img class="logo-c be_logo" src="img/logo-green.png" alt="logo2">
+                    <img  class="logo-c be_logo" src="img/logo-orang.png" alt="logo3">
+                    <img class="logo-c be_logo" src="img/logo-red.png" alt="logo4">
+                </a>
+            </div>
+            <div>
+
+                <!--   <div ng-if="equals({}, profile._id)"> -->
+
+                <!-- </div> -->
+
+                <div class="login-header-block">
+                    <div class="login_block">
+                        <a class="notofications-popup" href="#/messages">
+                            <i class="fa fa-bell-o"></i>
+                            <span class="noto-count">23</span>
+                        </a>
+                        <div class="noto-popup notofications-block">
+                            <div class="m-close"><i class="fa fa-times"></i></div>
+                            <div class="noto-label">Your Notification</div>
+                            <div class="noto-body">
+                                <div class="noto-entry">
+                                    <div class="noto-content clearfix">
+                                        <div class="noto-img">
+                                            <a href="#/messages">
+                                                <img src="img/c1.png" alt="" class="be-ava-comment">
+                                            </a>
+                                        </div>
+                                        <div class="noto-text">
+                                            <div class="noto-text-top">
+                                                <span class="noto-name"><a href="#/messages">Ravi Sah</a></span>
+                                                <span class="noto-date"><i class="fa fa-clock-o"></i> May 27, 2015</span>
+                                            </div>
+                                            <a href="#/messages" class="noto-message">Start following your work</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="noto-entry">
+                                    <div class="noto-content clearfix">
+                                        <div class="noto-img">
+                                            <a href="#/messages">
+                                                <img src="img/c6.jpg" alt="" class="be-ava-comment">
+                                            </a>
+                                        </div>
+                                        <div class="noto-text">
+                                            <div class="noto-text-top">
+                                                <span class="noto-name"><a href="#/messages">Louis Paquet</a></span>
+                                                <span class="noto-date"><i class="fa fa-clock-o"></i> May 27, 2015</span>
+                                            </div>
+                                            <div class="noto-message">
+                                                Saved “<a href="#/messages">Omni-onepage app template</a>” to Inspiration
+                                                <a class="portfolio-link type-2 clearfix" href="#/messages">
+                                                    <img src="img/p_link_23.jpg" alt="">
+                                                    <img src="img/p_link_31.jpg" alt="">
+                                                    <img src="img/p_link_32.jpg" alt="">
+                                                    <img src="img/p_link_33.jpg" alt="">
+                                                    <img src="img/p_link_34.jpg" alt="">
+                                                    <div class="color_bg">
+                                                        <span>view portfolio</span>
+                                                        <span class="child"></span>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="noto-entry">
+                                    <div class="noto-content clearfix">
+                                        <div class="noto-img">
+                                            <a href="#/messages">
+                                                <img src="img/c7.jpg" alt="" class="be-ava-comment">
+                                            </a>
+                                        </div>
+                                        <div class="noto-text">
+                                            <div class="noto-text-top">
+                                                <span class="noto-name"><a href="#/messages">v-a studio</a></span>
+                                                <span class="noto-date"><i class="fa fa-clock-o"></i> May 27, 2015</span>
+                                            </div>
+                                            <div class="noto-message">
+                                                <a class="noto-left" href="#/messages">
+                                                    <img src="img/n_pop_1.jpg" alt="">
+                                                </a>
+                                                Saved “<a href="#/messages">Omni-onepage app template</a>” to Inspiration
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="noto-entry">
+                                    <div class="noto-content clearfix">
+                                        <div class="noto-img">
+                                            <a href="#/messages">
+                                                <img src="img/c8.jpg" alt="" class="be-ava-comment">
+                                            </a>
+                                        </div>
+                                        <div class="noto-text">
+                                            <div class="noto-text-top">
+                                                <span class="noto-name"><a href="#/messages">Hoang Nguyen</a></span>
+                                                <span class="noto-date"><i class="fa fa-clock-o"></i> May 27, 2015</span>
+                                            </div>
+                                            <div class="noto-message">
+                                                <a class="noto-left" href="#/messages">
+                                                    <img src="img/n_pop_2.jpg" alt="">
+                                                </a>
+                                                Awesome, love the big whitespace and also everything between :)
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="noto-entry">
+                                    <div class="noto-content clearfix">
+                                        <div class="noto-img">
+                                            <a href="#/messages">
+                                                <img src="img/c9.jpg" alt="" class="be-ava-comment">
+                                            </a>
+                                        </div>
+                                        <div class="noto-text">
+                                            <div class="noto-text-top">
+                                                <span class="noto-name"><a href="#/messages">Cüneyt ŞEN</a></span>
+                                                <span class="noto-date"><i class="fa fa-clock-o"></i> May 27, 2015</span>
+                                            </div>
+                                            <a href="#/messages" class="noto-message">
+                                                Start following your work
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="messages-popup" href="#/messages">
+                            <i class="fa fa-envelope-o"></i>
+                            <span class="noto-count">4</span>
+                        </a>
+                        <div class="noto-popup messages-block">
+                            <div class="m-close"><i class="fa fa-times"></i></div>
+                            <div class="noto-label">Your Messages <span class="noto-label-links"><a href="messages-2.html">compose</a><a href="messages.html">View all messages</a></span></div>
+                            <div class="noto-body">
+                                <div class="noto-entry style-2">
+                                    <div class="noto-content clearfix">
+                                        <div class="noto-img">
+                                            <a href="#/messages">
+                                                <img src="img/c1.png" alt="" class="be-ava-comment">
+                                            </a>
+                                        </div>
+                                        <div class="noto-text">
+                                            <div class="noto-text-top">
+                                                <span class="noto-name"><a href="#/messages">Ravi Sah</a></span>
+                                                <span class="noto-date"><i class="fa fa-clock-o"></i> May 27, 2015</span>
+                                            </div>
+                                            <div class="noto-message">Sed velit mauris, pulvinar sit amet accumsan vitae, egestas, pulvinar sit amet accumsan vitae, egestas</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="noto-entry style-2">
+                                    <div class="noto-content clearfix">
+                                        <div class="noto-img">
+                                            <a href="#/messages">
+                                                <img src="img/c6.jpg" alt="" class="be-ava-comment">
+                                            </a>
+                                        </div>
+                                        <div class="noto-text">
+                                            <div class="noto-text-top">
+                                                <span class="noto-name"><a href="#/messages">Louis Paquet</a></span>
+                                                <span class="noto-date"><i class="fa fa-clock-o"></i> May 27, 2015</span>
+                                            </div>
+                                            <div class="noto-message">
+                                                Pellentesque habitant morbi tristique senectus et netus tristique senectus
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="noto-entry style-2">
+                                    <div class="noto-content clearfix">
+                                        <div class="noto-img">
+                                            <a href="#/messages">
+                                                <img src="img/c9.jpg" alt="" class="be-ava-comment">
+                                            </a>
+                                        </div>
+                                        <div class="noto-text">
+                                            <div class="noto-text-top">
+                                                <span class="noto-name"><a href="#/messages">Cüneyt ŞEN</a></span>
+                                                <span class="noto-date"><i class="fa fa-clock-o"></i> May 27, 2015</span>
+                                            </div>
+                                            <div class="noto-message">
+                                                Sed id erat vitae libero malesuada dictum vel sit amet eros
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="noto-entry style-2">
+                                    <div class="noto-content clearfix">
+                                        <div class="noto-img">
+                                            <a href="#/messages">
+                                                <img src="img/c10.jpg" alt="" class="be-ava-comment">
+                                            </a>
+                                        </div>
+                                        <div class="noto-text">
+                                            <div class="noto-text-top">
+                                                <span class="noto-name"><a href="#/messages">Tomasz Mazurczak</a></span>
+                                                <span class="noto-date"><i class="fa fa-clock-o"></i> May 27, 2015</span>
+                                            </div>
+                                            <div class="noto-message">
+                                                In molestie libero quis cursus ullamcorper eu rhoncus magna
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="be-drop-down login-user-down">
+                            <img class="login-user" src="img/login.jpg" alt="">
+
+                            <div class="drop-down-list a-list">
+                                <a href="#/myportfolio">My Portfolio</a>
+                                <a href="#/">Statistics </a>
+                                <a href="#/claims">My Claims</a>
+                                <a href="#/myportfolio-information">Account Settings</a>
+                                <a href="#/">Logout</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--  -->
+            <div class="header-menu-block">
+                <button class="cmn-toggle-switch cmn-toggle-switch__htx"><span></span></button>
+                <ul class="header-menu" id="one">
+                    <li><a  href="http://localhost:3000/#/home" target="_blank">Home</a></li>
+                    <li><a href="#/discover/explore">Discover</a>
+                        <ul>
+                            <li><a href="#/discover/explore">Explore</a></li>
+                            <li><a href="#/discover/people">People</a></li>
+                            <li><a href="#/discover/gallerie">Galleries</a></li>
+                            <li><a href="#/discover/youtube">Videos</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#/challenges">Challenges</a></li>
+                    <li><a href="#/myportfolio">My Portfolio</a></li>
+
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+<div id="content-block">
+    <div class="container be-detail-container">
+        <div class="row">
+
+            <div class="col-xs-12 col-sm-7">
+                <div class="be-large-post">
+                    <div class="info-block style-2">
+                        <div class="be-large-post-align">
+                            <h3 class="info-block-label">{{ param }}</h3>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<footer>
+
+    <div class="footer_slider">
+        <div class="swiper-container" data-autoplay="0" data-loop="1" data-speed="500" data-center="0" data-slides-per-view="responsive" data-xs-slides="4" data-sm-slides="8" data-md-slides="14" data-lg-slides="19" data-add-slides="19">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide active" data-val="0">
+
+                    <a href="gallery.html">				<img class="img-responsive img-full" src="img/f1.jpg" alt="">
+                    </a></div>
+                <div class="swiper-slide" data-val="1">
+                    <a href="gallery.html">
+
+                        <img class="img-responsive img-full" src="img/f2.jpg" alt="">
+                    </a></div>
+                <div class="swiper-slide" data-val="2">
+                    <a href="gallery.html">
+
+                        <img class="img-responsive img-full" src="img/f3.jpg" alt="">
+                    </a></div>
+                <div class="swiper-slide" data-val="3">
+                    <a href="gallery.html">
+
+                        <img class="img-responsive img-full" src="img/f4.jpg" alt="">
+                    </a></div>
+                <div class="swiper-slide" data-val="4">
+                    <a href="gallery.html">
+
+                        <img class="img-responsive img-full" src="img/f5.jpg" alt="">
+                    </a></div>
+                <div class="swiper-slide" data-val="5">
+                    <a href="gallery.html">
+
+                        <img class="img-responsive img-full" src="img/f6.jpg" alt="">
+                    </a></div>
+                <div class="swiper-slide" data-val="6">
+                    <a href="gallery.html">
+
+                        <img class="img-responsive img-full" src="img/f7.jpg" alt="">
+                    </a></div>
+                <div class="swiper-slide" data-val="7">
+                    <a href="gallery.html">
+
+                        <img class="img-responsive img-full" src="img/f8.jpg" alt="">
+                    </a></div>
+                <div class="swiper-slide" data-val="8">
+                    <a href="gallery.html">
+
+                        <img class="img-responsive img-full" src="img/f9.jpg" alt="">
+                    </a></div>
+                <div class="swiper-slide" data-val="9">
+                    <a href="gallery.html">
+
+                        <img class="img-responsive img-full" src="img/f10.jpg" alt="">
+                    </a></div>
+                <div class="swiper-slide" data-val="10">
+                    <a href="gallery.html">
+
+                        <img class="img-responsive img-full" src="img/f11.jpg" alt="">
+                    </a></div>
+                <div class="swiper-slide" data-val="11">
+                    <a href="gallery.html">
+
+                        <img class="img-responsive img-full" src="img/f12.jpg" alt="">
+                    </a></div>
+                <div class="swiper-slide" data-val="12">
+                    <a href="gallery.html">
+
+                        <img class="img-responsive img-full" src="img/f13.jpg" alt="">
+                    </a></div>
+                <div class="swiper-slide" data-val="13">
+                    <a href="gallery.html">
+
+                        <img class="img-responsive img-full" src="img/f14.jpg" alt="">
+                    </a></div>
+                <div class="swiper-slide" data-val="14">
+                    <a href="gallery.html">
+
+                        <img class="img-responsive img-full" src="img/f15.jpg" alt="">
+                    </a></div>
+                <div class="swiper-slide" data-val="15">
+                    <a href="gallery.html">
+
+                        <img class="img-responsive img-full" src="img/f16.jpg" alt="">
+                    </a></div>
+                <div class="swiper-slide" data-val="16">
+                    <a href="gallery.html">
+
+                        <img class="img-responsive img-full" src="img/f17.jpg" alt="">
+                    </a></div>
+                <div class="swiper-slide" data-val="17">
+                    <a href="gallery.html">
+
+                        <img class="img-responsive img-full" src="img/f18.jpg" alt="">
+                    </a></div>
+                <div class="swiper-slide" data-val="18">
+                    <a href="gallery.html">
+
+                        <img class="img-responsive img-full" src="img/f19.jpg" alt="">
+                    </a></div>
+                <div class="swiper-slide" data-val="19">
+                    <a href="gallery.html">
+
+                        <img class="img-responsive img-full" src="img/f1.jpg" alt="">
+                    </a></div>
+                <div class="swiper-slide" data-val="20">
+                    <a href="gallery.html">
+
+                        <img class="img-responsive img-full" src="img/f2.jpg" alt="">
+                    </a></div>
+                <div class="swiper-slide" data-val="21">
+                    <a href="gallery.html">
+
+                        <img class="img-responsive img-full" src="img/f3.jpg" alt="">
+                    </a></div>
+                <div class="swiper-slide" data-val="22">
+                    <a href="gallery.html">
+
+                        <img class="img-responsive img-full" src="img/f4.jpg" alt="">
+                    </a></div>
+                <div class="swiper-slide" data-val="23">
+                    <a href="gallery.html">
+
+                        <img class="img-responsive img-full" src="img/f5.jpg" alt="">
+                    </a></div>
+            </div>
+            <div class="pagination hidden"></div>
+        </div>
+    </div>
+    <div class="footer-main">
+        <div class="container-fluid custom-container">
+            <div class="row">
+                <div class="col-md-3 col-xl-4">
+                    <div class="footer-block">
+                        <h1 class="footer-title">About Us</h1>
+                        <p>Vestibulum tincidunt, augue fermentum accumsan viverra, eros dui rutrum libero, nec imperdiet felis sem in augue luctus <a href="blog-detail-2.html">diam a porta</a> iaculis. Vivamus sit amet fermentum nisl. Duis id <a href="blog-detail-2.html">massa id purus</a> tristique varius a sit amet est. Fusce dolor libero, efficitur et lobortis at, faucibus nec nunc.</p>
+                        <ul class="soc_buttons">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
+                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3 col-xl-2">
+                    <div class="footer-block">
+                        <h1 class="footer-title">Some Links</h1>
+                        <div class="row footer-list-footer">
+                            <div class="col-md-6">
+                                <ul class="link-list">
+                                    <li><a href="about-us.html">About Us</a></li>
+                                    <li><a href="contact-us.html">Help</a></li>
+                                    <li><a href="contact-us.html">Contacts</a></li>
+                                    <li><a href="activity.html">Job</a></li>
+                                    <li><a href="activity.html">Projets</a></li>
+                                </ul></div>
+                            <div class="col-md-6">
+                                <ul class="link-list">
+                                    <li><a href="activity.html">New Works</a></li>
+                                    <li><a href="author.html">Popular Authors</a></li>
+                                    <li><a href="author.html">New Authors</a></li>
+                                    <li><a href="people.html">Career</a></li>
+                                    <li><a href="faq.html">FAQ</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 galerry">
+                    <div class="footer-block">
+                        <h1 class="footer-title">Recent Works</h1>
+                        <a href="blog-detail-2.html"><img src="img/g1.jpg" alt=""></a>
+                        <a href="blog-detail-2.html"><img src="img/g2.jpg" alt=""></a>
+                        <a href="blog-detail-2.html"><img src="img/g3.jpg" alt=""></a>
+                        <a href="blog-detail-2.html"><img src="img/g4.jpg" alt=""></a>
+                        <a href="blog-detail-2.html"><img src="img/g5.jpg" alt=""></a>
+                        <a href="blog-detail-2.html"><img src="img/g6.jpg" alt=""></a>
+                        <a href="blog-detail-2.html"><img src="img/g7.jpg" alt=""></a>
+                        <a href="blog-detail-2.html"><img src="img/g8.jpg" alt=""></a>
+                        <a href="blog-detail-2.html"><img src="img/g9.jpg" alt=""></a>
+                        <a href="blog-detail-2.html"><img src="img/g10.jpg" alt=""></a>
+                        <a href="blog-detail-2.html"><img src="img/g11.jpg" alt=""></a>
+                        <a href="blog-detail-2.html"><img src="img/g12.jpg" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="footer-block">
+                        <h1 class="footer-title">Subscribe On Our News</h1>
+                        <form action="http://demo.nrgthemes.com/projects/nrgnetwork/" class="subscribe-form">
+                            <input type="text" placeholder="Yout Name" required>
+                            <div class="submit-block">
+                                <i class="fa fa-envelope-o"></i>
+                                <input type="submit" value="">
+                            </div>
+                        </form>
+                        <div class="soc-activity">
+                            <div class="soc_ico_triangle">
+                                <i class="fa fa-twitter"></i>
+                            </div>
+                            <div class="message-soc">
+                                <div class="date">16h ago</div>
+                                <a href="blog-detail-2.html" class="account">@faq</a> vestibulum accumsan est <a href="blog-detail-2.html" class="heshtag">blog-detail-2.htmlmalesuada</a> sem auctor, eu aliquet nisi ornare leo sit amet varius egestas.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container-fluid custom-container">
+            <div class="col-md-12 footer-end clearfix">
+                <div class="left">
+                    <span class="copy">© 2015. All rights reserved. <span class="white"><a href="blog-detail-2.html"> NRGNetwork</a></span></span>
+                    <span class="created">Created with LOVE by <span class="white"><a href="blog-detail-2.html"> NRGThemes</a></span></span>
+                </div>
+                <div class="right">
+                    <a class="btn color-7 size-2 hover-9">About Us</a>
+                    <a class="btn color-7 size-2 hover-9">Help</a>
+                    <a class="btn color-7 size-2 hover-9">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
