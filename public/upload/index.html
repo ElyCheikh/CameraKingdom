@@ -37,11 +37,9 @@
 		<div class="be-large-post-align">
 			<form  ng-controller="MyCtrl as up" name="up.upload_form">
 				<div class="form-group">
-					<div class="form-label">Titre</div>
-					<input type="text" name="filename" ng-model="up.filename">
+					<div class="form-label">Titre : <input type="text" name="filename" ng-model="up.filename"></div>
 				</div>
 				<div class="form-group">
-					<div class="form-label">fichier :</div>
 					<input
 							type="file"
 							ngf-select
@@ -54,7 +52,6 @@
 				</div>
 
 				<div class="form-group">
-					<div class="form-label">Image thumbnail :</div>
 					<img style="width:100px;" ng-show="!!up.file" ngf-thumbnail="up.file || '/thumb.jpg'"/>
 				</div>
 				<i ng-show="up.upload_form.file.$error.required">*required</i><br>
