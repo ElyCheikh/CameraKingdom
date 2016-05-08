@@ -1307,7 +1307,7 @@ app.directive('coloredBar', function() {
 	return {
 		link: function(scope, element, attrs) {
 			var INCREMENTAL_WIDTH = 20;
-			var MIN_WIDTH = 30;
+			var MIN_WIDTH = 90;
 
 			// have a min width?
 
