@@ -1145,14 +1145,20 @@ app.controller('MediaCtrl', function($scope,$rootScope, MediaFactory) {
 /*-----------------------Challenge Work Controllers-----------------*/
 /*------------------------------------------------------------------*/
 
-function IssuesController($scope, Issues, Auth) {
+function IssuesController($scope, Issues, Auth,MediaFactory) {
 	$scope.globalFoo();
 	// If you didn't want realtime updates, you would use Issues.query()
 	$scope.issues = Issues.pollList(1000);
 	$scope.auth = Auth;
-
+	loadMedia();
+	function loadMedia(){
+		MediaFactory.medias().success(function (response) {
+			console.log(response);
+			$scope.medias = response;
+		});
+	}
 	$scope.create = function() {
-		issue = {first: {name: $scope.firstOption}, second: {name: $scope.secondOption}};
+		issue = {first: {imglink:$scope.imglink1 ,name: $scope.firstOption}, second: {imglink:$scope.imglink2,name: $scope.secondOption}};
 		Issues.save(issue, function() {
 			$scope.issues = Issues.query()
 		})

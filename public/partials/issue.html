@@ -2,15 +2,100 @@
   <div class="head-bg">
     <div class="head-bg-img"></div>
     <div class="head-bg-content">
-      <h1>Poll Vote</h1>
-      <a class="be-register btn color-3 size-1 hover-6"><i class="fa fa-event"></i>Create Challenge</a>
+      <h1>Challenge of the week</h1>
+      <h1>Theme : Tunisia the best destination of this summer </h1>
+      <h1>Be part of this Challenge</h1>
 
     </div>
   </div>
+  </div>
+<div class="blog-wrapper blog-list blog-fullwith">
+
+  <div class="row">
+    <div class="col-xs-12 col-md-10 col-md-offset-1">
+      <div class="blog-post be-large-post type-2">
+        <h3 class="letf-menu-article">Two pictures of challengers are</h3>
+        <div class="row">
+          <div class="col-xs-12 col-sm-6">
+            <div class="be-post style-2 nav-post">
+              <div class="be-post-date">
+                <a href="#">The first picture</a>
+              </div>
+              <a href="#" class="be-post-title">
+                {{issue.first.name}}
+              </a>
+              <a href="blog-detail-2.html" class="be-img-block">
+                <img src="uploads/{{ issue.first.imglink }}" width="100%" height="50%" alt="omg">
+              </a>
+            </div>
+            <button type="submit"   ng-click="vote(issue.first)"  class="btn full color-1 size-1 hover-1">Vote</button>
+
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            <div class="be-post style-2 nav-post nav-next">
+              <div class="be-post-date">
+                <a href="blog-detail-2.html">The second one</a>
+              </div>
+              <a href="blog-detail-2.html" class="be-post-title">
+                {{issue.second.name}}
+              </a>
+              <a href="blog-detail-2.html" class="be-img-block">
+                <img src="uploads/{{ issue.second.imglink }}" width="100%" height="20%" alt="omg">
+              </a>
+            </div>
+            <button type="submit"   ng-click="vote(issue.second)"  class="btn full color-1 size-1 hover-1">Vote</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+</div>
+<div class="blog-wrapper blog-list blog-fullwith">
+
+  <div class="row">
+    <div class="col-xs-12 col-md-10 col-md-offset-1">
+      <div class="blog-post be-large-post type-2">
+        <h3 class="letf-menu-article">Result Of this Challenge</h3>
+        <div class="row center-block">
+          <div class="col-xs-12 col-sm-6">
+
+          <div pie-chart first="issue.first.votes" second="issue.second.votes"></div> <h3 class="chart-label">{{issue.first.name}}</h3>
+</div>
+          <div class="col-xs-12 col-sm-6">
+            <div class="votes">
+              <h2>{{issue.votes.length}} Votes</h2>
+              <table class="votes">
+                <tr><th>User</th><th>Voted</th><th>When</th></tr>
+                <tr class="vote" ng-repeat="vote in issue.votes | orderBy:'-created'">
+                  <td>{{vote.username}}</td>
+                  <td>{{vote.name}}</td>
+                  <td>{{vote.created | ago}}</td>
+                </tr>
+              </table>
+            </div>
+</div>
+          </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+  <a type="submit" href="#/challenges"  class="btn full color-1 size-1 hover-1">Back to All challenges</a>
+
+
+</div>
+ <!--
   <div class="custom-container gallery-container">
     <div class="container">
-      <!--		<iframe src="http://the-issues.herokuapp.com/#/details/57175ab10000000300000004" width="1100" height="500"></iframe>
--->
+
 
 
       <div class="sidebar">
@@ -20,33 +105,24 @@
         <div class="btn-login btn color-1 size-2 hover-2" ng-click="remove()"><button>Delete Issue</button></div>
       </div>
 
+
       <div class="content issue">
 
         <h2><span>{{issue.first.name}}</span> VS <span>{{issue.second.name}}</span></h2>
 
         <div class="info">
-          <div pie-chart first="issue.first.votes" second="issue.second.votes"></div> <h3 class="chart-label">{{issue.first.name}}</h3>
 
           <div class="castVote" ng-show="auth.loggedIn">
             <button class="btn-login btn color-1 size-2 hover-2" ng-click="vote(issue.first)">Vote {{issue.first.name}}</button>
             <button class="btn-login btn color-1 size-2 hover-2" ng-click="vote(issue.second)">Vote {{issue.second.name}}</button>
           </div>
+
         </div>
 
-        <div class="votes">
-          <h2>{{issue.votes.length}} Votes</h2>
-          <table class="votes">
-            <tr><th>User</th><th>Voted</th><th>When</th></tr>
-            <tr class="vote" ng-repeat="vote in issue.votes | orderBy:'-created'">
-              <td>{{vote.username}}</td>
-              <td>{{vote.name}}</td>
-              <td>{{vote.created | ago}}</td>
-            </tr>
-          </table>
-        </div>
 
       </div>
 
     </div>
   </div>
+  -->
 </div>
