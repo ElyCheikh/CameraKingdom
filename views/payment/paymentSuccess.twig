@@ -281,7 +281,11 @@
                             <div class="info-block style-2">
                                 <div class="be-large-post-align">
                                     <h3 class="info-block-label">Successfully upgraded to Premium !!</h3>
-                                    <h3>Payment done with card number : {{ param }}</h3>
+                                    <h3>{{ param.response.responseMsg }}</h3>
+                                    <h4>Transaction Id : {{ param.response.transactionId }}</h4>
+                                    <h4>Order number : {{ param.response.orderNumber }}</h4>
+                                    <h4>Price : {{ param.response.total }}</h4>
+
                                 </div>
                             </div>
 

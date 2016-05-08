@@ -111,12 +111,12 @@ mongoose.connect('mongodb://elycheikh:ely4twin1@ds011379.mlab.com:11379/cameraki
 var uploadedfilename;
 var storage = multer.diskStorage({ //multers disk storage settings
   destination: function (req, file, cb) {
-    cb(null, './uploads/');
+    cb(null, './public/uploads/');
   },
   filename: function (req, file, cb) {
     var datetimestamp = Date.now();
-    uploadedfilename= file.fieldname + '-' + datetimestamp + '.' + file.originalname.split('.')[file.originalname.split('.').length -1];
-    cb(null, file.fieldname + '-' + datetimestamp + '.' + file.originalname.split('.')[file.originalname.split('.').length -1]);
+    uploadedfilename= file.fieldname + datetimestamp + '.' + file.originalname.split('.')[file.originalname.split('.').length -1];
+    cb(null, file.fieldname + datetimestamp + '.' + file.originalname.split('.')[file.originalname.split('.').length -1]);
   }
 });
 

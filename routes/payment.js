@@ -4,6 +4,7 @@
 // Require the module
 var express = require('express');
 var Twocheckout = require('2checkout-node');
+var Order = require('../models/orders.js');
 var router = express.Router();
 // Pass in your private key and seller ID
 var tco = new Twocheckout({
@@ -37,11 +38,25 @@ console.log("cc="+req.body.ccNo);
     params.cvv=req.body.cvv;
     tco.checkout.authorize(params, function (error, data) {
         if (error) {
+            res.render('payment/errorCardNumber.twig', { param: error.message });
             console.log(error.message);
         } else {
-            //res.json(JSON.stringify(data));
+           //res.json(data);
             //res.json("Payment done with success!");
-            res.render('payment/paymentSuccess.twig', { param: params.ccNo });
+            new Order({
+                transactionId: data.response.transactionId,
+                orderNumber: data.response.orderNumber,
+                total: data.response.total,
+                oauthID: "812421145531345"
+            })
+                .save(function(err, order) {
+                    if(err){
+                        console.log(err);
+                    }else{
+                        console.log('Saved Succcesfully');
+                    }
+                });
+           res.render('payment/paymentSuccess.twig', { param: data });
         }
     });
 });
