@@ -8,10 +8,9 @@ var router = express.Router();
 
 var ig = require('instagram-node').instagram();
 //user_id hamdi : 278199g704\
-ig.use({ client_id: '88092373fad24e649152152430554170',
-    client_secret: '71bfc26f83124a668792c029b6a2ad96' });
-ig.use({ access_token: '224236382.1677ed0.7ce35479a1ab4a678a43ef3c5c6fe637' });
-
+ig.use({ client_id: '4538ef2583384eb098602b7e4af61693',
+    client_secret: '118fa18ef4fd4f83ba7c16514434bf87' });
+ig.use({ access_token: '1501944404.1677ed0.8c24f51ab80f4789aea4d629d93c2f6f' });
 /* Les medias populaires */
 router.get('/p', function(req, res, next) {
     ig.media_popular(function(err, medias, remaining, limit) {
